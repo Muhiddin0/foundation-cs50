@@ -1,0 +1,1960 @@
+<!DOCTYPE HTML>
+<html lang="uz" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Foundation with CS50</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Dasturlash asoslari bo&#x27;yicha o&#x27;zbek tilidagi ochiq darslik">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-97deacae.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-a5c97112.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Foundation with CS50</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/Muhiddin0/foundation-cs50" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="foundation-with-cs50"><a class="header" href="#foundation-with-cs50">Foundation with CS50</a></h1>
+<p><strong>Foundation with CS50</strong> — dasturlashni noldan o’rganayotgan o’quvchilar uchun
+o’zbek tilida yozilayotgan ochiq darslik.</p>
+<p>Darslik CS50 mavzularidan ilhomlangan bo’lib, kompyuter qanday ishlashi,
+algoritmik fikrlash va dasturlashning asosiy tushunchalarini sodda misollar
+orqali tushuntiradi.</p>
+<h2 id="oqishni-boshlash"><a class="header" href="#oqishni-boshlash">O’qishni boshlash</a></h2>
+<ul>
+<li><a href="lecture-0/README.html">0-ma’ruza — Informatika va dasturlash asoslari</a></li>
+<li><a href="#terminlar-lugati">Terminlar lug’ati</a></li>
+</ul>
+<p>Chap tomondagi mundarija orqali ma’ruza va mavzular orasida o’tishingiz mumkin.
+Har bir mavzuda nazariya, hayotiy misollar, amaliy mashqlar, mini-loyiha va
+o’zingizni tekshirish savollari mavjud.</p>
+<h2 id="darslikdan-qanday-foydalanish-kerak"><a class="header" href="#darslikdan-qanday-foydalanish-kerak">Darslikdan qanday foydalanish kerak?</a></h2>
+<ol>
+<li>Mavzularni mundarijadagi tartibda o’qing.</li>
+<li>Misollarni mustaqil ravishda qayta bajaring.</li>
+<li>Mashqlarni javobga qaramasdan yechishga harakat qiling.</li>
+<li>Har bir ma’ruza oxiridagi mini-loyihani bajaring.</li>
+<li>Tushunarsiz terminlarni lug’atdan tekshiring.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="0-maruza--informatika-va-dasturlash-asoslari"><a class="header" href="#0-maruza--informatika-va-dasturlash-asoslari">0-ma’ruza — Informatika va dasturlash asoslari</a></h1>
+<p>Ushbu ma’ruzada kompyuter axborotni qanday ifodalashi va muammoni algoritm
+yordamida qanday yechishi bilan tanishasiz.</p>
+<h2 id="mavzular"><a class="header" href="#mavzular">Mavzular</a></h2>
+<ol>
+<li><a href="#0-maruza-informatika-olamiga-xush-kelibsiz">Informatika olamiga xush kelibsiz</a></li>
+<li><a href="#informatika-va-muammoni-yechish">Informatika va muammoni yechish</a></li>
+<li><a href="#ascii-matnni-sonlar-orqali-ifodalash">ASCII: matnni sonlar orqali ifodalash</a></li>
+<li><a href="#unicode-dunyo-yozuvlarini-ifodalash">Unicode: dunyo yozuvlarini ifodalash</a></li>
+<li><a href="#rgb-ranglarni-sonlar-orqali-ifodalash">RGB: ranglarni sonlar orqali ifodalash</a></li>
+<li><a href="#algoritmlar-muammoni-qadamlar-bilan-yechish">Algoritmlar: muammoni qadamlar bilan yechish</a></li>
+</ol>
+<p>Mavzular bir-biriga bog’langan. Shu sababli ularni yuqoridagi tartibda o’qish
+tavsiya etiladi.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="0-maruza-informatika-olamiga-xush-kelibsiz"><a class="header" href="#0-maruza-informatika-olamiga-xush-kelibsiz">0-ma’ruza. Informatika olamiga xush kelibsiz</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida"><a class="header" href="#dars-haqida">Dars haqida</a></h2>
+<p>Bugun sun’iy intellekt matn yozishi, rasm yaratishi va hatto dastur kodi
+taklif qilishi mumkin. Shunday paytda tabiiy bir savol tug’iladi: «Agar sun’iy
+intellekt kod yoza olsa, dasturlashni o’rganishim kerakmi?»</p>
+<p>Ha, kerak. Sun’iy intellekt ayrim ishlarni tezlashtiradi, ammo qanday muammoni
+hal qilish, natija to’g’ri yoki noto’g’ri ekanini aniqlash va yaratilgan yechimni
+rivojlantirish baribir insonning bilimiga bog’liq. Dasturlash asoslarini bilgan
+odam texnologiyadan shunchaki foydalanib qolmaydi — uni boshqara oladi va yangi
+narsalar yaratadi.</p>
+<p>Ushbu kirish darsida nima uchun informatika va dasturlashni o’rganish muhimligi,
+sun’iy intellektdan qanday yondashuv bilan foydalanish kerakligi hamda kurs davomida
+sizdan nimalar kutilishi haqida gaplashamiz.</p>
+<h2 id="oquv-maqsadlari"><a class="header" href="#oquv-maqsadlari">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>dasturlashni o’rganish nega muhimligini tushuntira olasiz;</li>
+<li>sun’iy intellektning yordamchi vosita ekanini anglaysiz;</li>
+<li>tayyor javob olish bilan muammoni mustaqil yechish orasidagi farqni bilasiz;</li>
+<li>kurs davomida shakllantiradigan asosiy ko’nikmalaringizni sanab bera olasiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin"><a class="header" href="#boshlashdan-oldin">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> talab qilinmaydi.</li>
+<li><strong>Kerakli dasturlar:</strong> hozircha kerak emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 15–20 daqiqa.</li>
+</ul>
+<p>Bu kursni boshlash uchun avval dastur yozgan bo’lishingiz shart emas. Savol
+berishga, tajriba qilishga va xatolardan o’rganishga tayyor bo’lishingiz kifoya.</p>
+<h2 id="informatika-faqat-kod-yozish-emas"><a class="header" href="#informatika-faqat-kod-yozish-emas">Informatika faqat kod yozish emas</a></h2>
+<p>Informatika (computer science) — axborotni qanday ifodalash, muammolarni qanday
+tahlil qilish va ularni aniq qadamlar yordamida qanday yechishni o’rganadigan
+soha. Dasturlash (programming) esa shu yechimlarni kompyuter tushunadigan shaklda
+ifodalash usulidir.</p>
+<p>Masalan, siz maktab kutubxonasidagi kitoblarni tez topish tizimini yaratmoqchisiz.
+Kod yozishdan oldin quyidagi savollarga javob topishingiz kerak:</p>
+<ol>
+<li>Kitoblar haqidagi qaysi ma’lumotlar saqlanadi?</li>
+<li>Foydalanuvchi kitobni nomi, muallifi yoki mavzusi bo’yicha qidiradimi?</li>
+<li>Bir xil nomdagi bir nechta kitob bo’lsa, natija qanday ko’rsatiladi?</li>
+<li>Noto’g’ri yoki yetishmayotgan ma’lumot bilan nima qilinadi?</li>
+</ol>
+<p>Bu savollarning hech biri ma’lum bir dasturlash tiliga bog’liq emas. Ular avvalo
+muammoni tushunish va yechimni loyihalashga taalluqli. Demak, yaxshi dasturchi
+faqat kod yozadigan emas, balki muammoni to’g’ri qo’ya oladigan insondir.</p>
+<h2 id="suniy-intellekt-davrida-asoslar-nega-kerak"><a class="header" href="#suniy-intellekt-davrida-asoslar-nega-kerak">Sun’iy intellekt davrida asoslar nega kerak?</a></h2>
+<p>Sun’iy intellekt (artificial intelligence, AI) katta hajmdagi ma’lumotlar asosida
+javob, g’oya yoki kod taklif qilishi mumkin. U takroriy ishlarni tezlashtiradi,
+tushunarsiz mavzuni boshqa usulda izohlab beradi va yechim izlashda yo’nalish
+ko’rsatadi. Lekin u doimo to’g’ri javob bermaydi.</p>
+<p>Sun’iy intellekt yaratgan kod:</p>
+<ul>
+<li>vazifani noto’g’ri tushungan bo’lishi;</li>
+<li>ayrim holatlarni hisobga olmasligi;</li>
+<li>xavfsizlik muammosini keltirib chiqarishi;</li>
+<li>ishlasa ham, keragidan ortiq murakkab bo’lishi mumkin.</li>
+</ul>
+<p>Asosiy bilimlarga ega bo’lmasangiz, bunday muammolarni payqash qiyin bo’ladi.
+Asoslarni bilsangiz esa, taklif qilingan yechimni tekshira, tuzata va o’z
+maqsadingizga moslashtira olasiz.</p>
+<h3 id="hayotiy-misol"><a class="header" href="#hayotiy-misol">Hayotiy misol</a></h3>
+<p>Sun’iy intellektni navigatorga o’xshatish mumkin. Navigator manzilga boradigan
+yo’lni tezda ko’rsatadi, lekin avtomobilni boshqarish, yo’l belgilariga rioya
+qilish va xavfli vaziyatda qaror qabul qilish haydovchining vazifasi bo’lib
+qoladi. Haydashni bilmagan odam uchun navigatorning o’zi yetarli emas.</p>
+<p>Dasturlashda ham xuddi shunday: sun’iy intellekt yordamchi bo’lishi mumkin, ammo
+yo’nalishni siz belgilaysiz va natija uchun siz javob berasiz.</p>
+<h2 id="tayyor-javob-emas-fikrlash-konikmasi"><a class="header" href="#tayyor-javob-emas-fikrlash-konikmasi">Tayyor javob emas, fikrlash ko’nikmasi</a></h2>
+<p>Bu kursning maqsadi barcha buyruqlarni yodlatish emas. Muhimi, yangi muammoga
+duch kelganingizda qanday fikrlashingizdir. Kurs davomida siz:</p>
+<ul>
+<li>katta muammoni kichik qismlarga ajratishni;</li>
+<li>yechim qadamlarini tartib bilan yozishni;</li>
+<li>bir nechta yechimni solishtirishni;</li>
+<li>xatoni topish va sababini aniqlashni;</li>
+<li>yaratgan dasturingizni sinash va yaxshilashni o’rganasiz.</li>
+</ul>
+<p>Ba’zan birinchi urinish ishlamaydi. Bu qobiliyatsizlik belgisi emas, balki
+dasturlash jarayonining odatiy qismidir. Har bir xato sizga dastur qanday
+ishlayotgani haqida yangi ma’lumot beradi.</p>
+<h2 id="siz-boshqaruvchi-boling"><a class="header" href="#siz-boshqaruvchi-boling">Siz boshqaruvchi bo’ling</a></h2>
+<p>Texnologiyani ikki xil usulda ishlatish mumkin. Birinchi usulda inson faqat
+tayyor vositaning imkoniyatlari bilan cheklanadi. Ikkinchi usulda esa u vosita
+qanday ishlashini tushunadi, uni moslashtiradi va yangi yechim yaratadi.</p>
+<p>Dasturlashni o’rganish sizga ikkinchi yo’lni tanlash imkonini beradi. Siz faqat
+tayyor ilova foydalanuvchisi emas, balki o’z g’oyasini ishlaydigan dasturga
+aylantira oladigan yaratuvchiga aylanasiz. Sun’iy intellekt bu imkoniyatni
+kamaytirmaydi; aksincha, bilimli inson qo’lida uni yanada kengaytiradi.</p>
+<h2 id="amaliy-mashq--oquv-maqsadingizni-belgilang"><a class="header" href="#amaliy-mashq--oquv-maqsadingizni-belgilang">Amaliy mashq — o’quv maqsadingizni belgilang</a></h2>
+<p>Daftar yoki alohida faylga quyidagi savollarga qisqa javob yozing:</p>
+<ol>
+<li>Dasturlashni nima uchun o’rganmoqchisiz?</li>
+<li>Qanday muammo yoki kundalik ishni dastur yordamida yengillashtirmoqchisiz?</li>
+<li>Kurs oxirigacha qanday kichik loyiha yaratishni xohlaysiz?</li>
+<li>Biror mavzu qiyin bo’lsa, yordam olishdan oldin qaysi uchta usulni sinab
+ko’rasiz?</li>
+</ol>
+<p>Javoblaringiz hozir mukammal bo’lishi shart emas. Kurs davomida fikringiz
+o’zgarishi mumkin. Muhimi, o’rganishni aniq bir maqsad bilan boshlashdir.</p>
+<h2 id="ozingizni-tekshiring"><a class="header" href="#ozingizni-tekshiring">O’zingizni tekshiring</a></h2>
+<ol>
+<li>Informatika va dasturlash o’rtasida qanday farq bor?</li>
+<li>Nega sun’iy intellekt dasturlash asoslarini o’rganish zaruratini yo’qotmaydi?</li>
+<li>Sun’iy intellekt taklif qilgan kodni nega tekshirish kerak?</li>
+<li>Dastur birinchi urinishda ishlamasa, bunga qanday munosabatda bo’lish kerak?</li>
+</ol>
+<h2 id="dars-xulosasi"><a class="header" href="#dars-xulosasi">Dars xulosasi</a></h2>
+<ul>
+<li>Informatika muammolarni tahlil qilish va aniq yechimlar yaratishni o’rgatadi.</li>
+<li>Dasturlash — o’ylangan yechimni kompyuter bajara oladigan shaklga keltirish
+vositasi.</li>
+<li>Sun’iy intellekt kuchli yordamchi, ammo u bilim, tekshiruv va inson qarorining
+o’rnini bosmaydi.</li>
+<li>Asoslarni o’rganish sizni texnologiyaning oddiy foydalanuvchisidan uni
+boshqaradigan yaratuvchiga aylantiradi.</li>
+<li>Xato qilish va qayta urinish dasturlashni o’rganishning tabiiy qismidir.</li>
+</ul>
+<h2 id="foydalanilgan-manba"><a class="header" href="#foydalanilgan-manba">Foydalanilgan manba</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#welcome">CS50x 2026, Lecture 0 — Welcome!</a>
+— sun’iy intellekt davrida dasturlash asoslarini o’rganishning ahamiyati.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="informatika-va-muammoni-yechish"><a class="header" href="#informatika-va-muammoni-yechish">Informatika va muammoni yechish</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida-1"><a class="header" href="#dars-haqida-1">Dars haqida</a></h2>
+<p>Kompyuter juda tez hisoblaydi, katta hajmdagi ma’lumotni saqlaydi va berilgan
+ko’rsatmalarni takror-takror bajaradi. Ammo u qaysi muammoni hal qilish kerakligini
+o’zi belgilamaydi. Avval inson muammoni tushunadi, kerakli ma’lumotlarni aniqlaydi
+va natijaga olib boradigan jarayonni ishlab chiqadi.</p>
+<p>Ushbu darsda muammoni <strong>kirish → qayta ishlash → chiqish</strong> modeli yordamida
+tahlil qilamiz. Shuningdek, kompyuter sonlarni nega ikkilik sanoq tizimida
+ifodalashi, bit va bayt nima ekanini bosqichma-bosqich o’rganamiz.</p>
+<h2 id="oquv-maqsadlari-1"><a class="header" href="#oquv-maqsadlari-1">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>muammoning kirish va chiqish ma’lumotlarini aniqlay olasiz;</li>
+<li>bir asosli, o’nlik va ikkilik sanoq tizimlarini farqlay olasiz;</li>
+<li>bit, bayt va tranzistor tushunchalarini izohlay olasiz;</li>
+<li>kichik o’nlik sonlarni ikkilik ko’rinishga o’tkaza olasiz;</li>
+<li>bitlar soni bilan ifodalash mumkin bo’lgan qiymatlar soni orasidagi
+bog’lanishni tushuntira olasiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin-1"><a class="header" href="#boshlashdan-oldin-1">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> oddiy qo’shish va 2 sonining darajalari haqida boshlang’ich
+tushuncha.</li>
+<li><strong>Kerakli dasturlar:</strong> kerak emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 35–45 daqiqa.</li>
+</ul>
+<h2 id="asosiy-terminlar"><a class="header" href="#asosiy-terminlar">Asosiy terminlar</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>Muammo yechish</td><td>Problem solving</td><td>Natijaga erishish yo’lini topish.</td></tr>
+<tr><td>Kirish</td><td>Input</td><td>Jarayonga beriladigan boshlang’ich ma’lumot.</td></tr>
+<tr><td>Qayta ishlash</td><td>Processing</td><td>Kirishni natijaga aylantiradigan amallar.</td></tr>
+<tr><td>Chiqish</td><td>Output</td><td>Jarayon yakunida olingan natija.</td></tr>
+<tr><td>Ikkilik tizim</td><td>Binary</td><td>Faqat <code>0</code> va <code>1</code> ishlatiladigan tizim.</td></tr>
+<tr><td>Bit</td><td>Binary digit</td><td>Bitta <code>0</code> yoki <code>1</code> qiymati.</td></tr>
+<tr><td>Bayt</td><td>Byte</td><td>Sakkiz bitdan tashkil topgan birlik.</td></tr>
+<tr><td>Tranzistor</td><td>Transistor</td><td>Elektr signalini boshqaradigan kalit.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-muammoni-tizimli-yechish"><a class="header" href="#1-muammoni-tizimli-yechish">1. Muammoni tizimli yechish</a></h2>
+<p>Dasturlashning markazida muammoni yechish (problem solving) turadi. Eng sodda
+ko’rinishda har qanday hisoblash jarayonini uch qismga ajratish mumkin:</p>
+<pre><code class="language-text">kirish (input)  →  qayta ishlash (processing)  →  chiqish (output)
+</code></pre>
+<ul>
+<li><strong>Kirish</strong> — bizda avvaldan bor ma’lumot.</li>
+<li><strong>Qayta ishlash</strong> — shu ma’lumot ustida bajariladigan qoidalar va amallar.</li>
+<li><strong>Chiqish</strong> — olishni istagan natija.</li>
+</ul>
+<p>Qayta ishlash qismi hozircha «qora quti»ga o’xshaydi:</p>
+<pre><code class="language-text">kirish  →  [ ?????????? ]  →  chiqish
+</code></pre>
+<p>Kurs davomida aynan shu qora qutining ichini to’ldirishni o’rganamiz. Ya’ni
+kompyuter kirish ma’lumotini kerakli natijaga aylantirishi uchun aniq va
+tartibli ko’rsatmalar tuzamiz.</p>
+<h3 id="hayotiy-misol-davomatni-hisoblash"><a class="header" href="#hayotiy-misol-davomatni-hisoblash">Hayotiy misol: davomatni hisoblash</a></h3>
+<p>Tasavvur qiling, o’qituvchi darsga nechta o’quvchi kelganini bilmoqchi.</p>
+<ul>
+<li><strong>Kirish:</strong> sinfdagi o’quvchilar holati — kelgan yoki kelmagan.</li>
+<li><strong>Qayta ishlash:</strong> kelgan har bir o’quvchini bir martadan sanash.</li>
+<li><strong>Chiqish:</strong> qatnashgan o’quvchilarning umumiy soni.</li>
+</ul>
+<p>Bu misolda sanash usuli qayta ishlash qismidir. Uni turli yo’llar bilan bajarish
+mumkin. Masalan, har bir o’quvchi uchun bitta chiziq chizish yoki sonni raqamlar
+bilan yozish mumkin.</p>
+<h2 id="2-bir-asosli-sanoq-tizimi"><a class="header" href="#2-bir-asosli-sanoq-tizimi">2. Bir asosli sanoq tizimi</a></h2>
+<p>Sanashning eng sodda usullaridan biri bir asosli sanoq tizimi (unary yoki
+base-1) hisoblanadi. Unda har bir dona uchun bittadan belgi qo’yiladi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Miqdor</th><th>Bir asosli yozuv</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><code>●</code></td></tr>
+<tr><td>2</td><td><code>●●</code></td></tr>
+<tr><td>3</td><td><code>●●●</code></td></tr>
+<tr><td>5</td><td><code>●●●●●</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Bu usul kichik miqdorlar uchun tushunarli. Lekin 100 yoki 1 000 kabi katta
+sonlarni yozish uchun juda ko’p belgi kerak bo’ladi. Demak, axborotni ixchamroq
+ifodalash usuliga ehtiyoj bor.</p>
+<h2 id="3-kompyuter-nega-ikkilik-tizimdan-foydalanadi"><a class="header" href="#3-kompyuter-nega-ikkilik-tizimdan-foydalanadi">3. Kompyuter nega ikkilik tizimdan foydalanadi?</a></h2>
+<p>Kundalik hayotda biz o’nlik sanoq tizimidan (decimal yoki base-10)
+foydalanamiz. Unda o’nta raqam bor: <code>0</code> dan <code>9</code> gacha.</p>
+<p>Kompyuterning elektron qismlarida esa ikki holatni ishonchli ajratish qulay:</p>
+<ul>
+<li>signal yo’q — <code>0</code>;</li>
+<li>signal bor — <code>1</code>.</li>
+</ul>
+<p>Buni o’chiq va yoniq chiroqqa ham o’xshatish mumkin. Bitta chiroq faqat ikki
+holatdan birida bo’ladi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Chiroq holati</th><th style="text-align: right">Ikkilik qiymat</th></tr>
+</thead>
+<tbody>
+<tr><td>O’chiq</td><td style="text-align: right"><code>0</code></td></tr>
+<tr><td>Yoniq</td><td style="text-align: right"><code>1</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Kompyuter ichida chiroqlar emas, tranzistorlar (transistors) ishlaydi. Tranzistor
+elektr signalini boshqaradigan juda kichik kalitga o’xshaydi. Zamonaviy
+qurilmalarda juda ko’p tranzistor mavjud va ularning holatlari yordamida
+ma’lumot ifodalanadi.</p>
+<p>Faqat <code>0</code> va <code>1</code> dan foydalanadigan tizim ikkilik sanoq tizimi (binary yoki
+base-2) deb ataladi. <code>Binary digit</code>, ya’ni «ikkilik raqam» iborasidan <strong>bit</strong>
+atamasi kelib chiqqan.</p>
+<h2 id="4-bitlarning-orin-qiymati"><a class="header" href="#4-bitlarning-orin-qiymati">4. Bitlarning o’rin qiymati</a></h2>
+<p>O’nlik sonlarda raqamning qiymati uning o’rniga bog’liq. Masalan, <code>572</code> sonida:</p>
+<ul>
+<li><code>5</code> — yuzliklar xonasida;</li>
+<li><code>7</code> — o’nliklar xonasida;</li>
+<li><code>2</code> — birliklar xonasida.</li>
+</ul>
+<p>O’ngdan chapga yurganda o’rin qiymatlari 10 baravar oshadi: <code>1</code>, <code>10</code>, <code>100</code> va
+hokazo. Ikkilik tizimda esa har bir keyingi o’rin 2 baravar oshadi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Daraja</th><th>2²</th><th>2¹</th><th>2⁰</th></tr>
+</thead>
+<tbody>
+<tr><td>O’rin qiymati</td><td>4</td><td>2</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+<p>Bit <code>1</code> bo’lsa, uning o’rin qiymatini qo’shamiz. Bit <code>0</code> bo’lsa, o’sha qiymatni
+qo’shmaymiz.</p>
+<p>Masalan, <code>101₂</code> ikkilik sonini o’nlikka o’tkazamiz:</p>
+<pre><code class="language-text">  1      0      1
+  ↓      ↓      ↓
+  4   +  0   +  1  = 5
+</code></pre>
+<p>Demak:</p>
+<pre><code class="language-text">101₂ = (1 × 4) + (0 × 2) + (1 × 1) = 5₁₀
+</code></pre>
+<p>Pastdagi kichik <code>₂</code> sonning ikkilik, <code>₁₀</code> esa o’nlik tizimda yozilganini
+bildiradi.</p>
+<h2 id="5-uch-bit-bilan-sanash"><a class="header" href="#5-uch-bit-bilan-sanash">5. Uch bit bilan sanash</a></h2>
+<p>Uchta bitning har biri <code>0</code> yoki <code>1</code> bo’lishi mumkin. Shuning uchun ular yordamida
+sakkizta turli holatni ifodalaymiz:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Ikkilik</th><th>Hisoblash</th><th>O’nlik</th></tr>
+</thead>
+<tbody>
+<tr><td><code>000</code></td><td>0 + 0 + 0</td><td>0</td></tr>
+<tr><td><code>001</code></td><td>0 + 0 + 1</td><td>1</td></tr>
+<tr><td><code>010</code></td><td>0 + 2 + 0</td><td>2</td></tr>
+<tr><td><code>011</code></td><td>0 + 2 + 1</td><td>3</td></tr>
+<tr><td><code>100</code></td><td>4 + 0 + 0</td><td>4</td></tr>
+<tr><td><code>101</code></td><td>4 + 0 + 1</td><td>5</td></tr>
+<tr><td><code>110</code></td><td>4 + 2 + 0</td><td>6</td></tr>
+<tr><td><code>111</code></td><td>4 + 2 + 1</td><td>7</td></tr>
+</tbody>
+</table>
+</div>
+<p>Bu yerda muhim farq bor:</p>
+<ul>
+<li>uch bit bilan <strong>8 ta turli qiymat</strong> yozish mumkin;</li>
+<li>eng katta qiymat esa <strong>7</strong> bo’ladi, chunki sanash <code>0</code> dan boshlanadi.</li>
+</ul>
+<p>Umumiy qoida quyidagicha:</p>
+<pre><code class="language-text">n ta bit → 2ⁿ ta turli qiymat → 0 dan 2ⁿ − 1 gacha
+</code></pre>
+<p>Masalan, to’rtta bit <code>2⁴ = 16</code> ta qiymatni, ya’ni <code>0</code> dan <code>15</code> gacha bo’lgan
+sonlarni ifodalaydi.</p>
+<h2 id="6-bitdan-baytga"><a class="header" href="#6-bitdan-baytga">6. Bitdan baytga</a></h2>
+<p>Kompyuter xotirasida bitlar odatda guruh bo’lib ishlatiladi. Sakkiz bitdan
+iborat guruh <strong>bayt</strong> (byte) deyiladi.</p>
+<p>Sakkiz bitning o’rin qiymatlari:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+</thead>
+<tbody>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+<p>Jadvaldagi <code>00000101₂</code> sonida <code>4</code> va <code>1</code> o’rinlari yoqilgan:</p>
+<pre><code class="language-text">00000101₂ = 4 + 1 = 5₁₀
+</code></pre>
+<p>Sakkiz bit <code>2⁸ = 256</code> ta turli holatni ifodalaydi. Agar faqat manfiy bo’lmagan
+sonlarni saqlasak, bir bayt bilan <code>0</code> dan <code>255</code> gacha yozish mumkin:</p>
+<pre><code class="language-text">00000000₂ = 0₁₀
+11111111₂ = 255₁₀
+</code></pre>
+<p>Nega eng katta son 256 emas? Chunki 256 ta qiymat ichida <code>0</code> ham bor. Shuning
+uchun oxirgi qiymat <code>255</code> bo’ladi.</p>
+<p>Keyingi bo’limlarda xuddi shu <code>0</code> va <code>1</code> lar yordamida harflar, ranglar,
+tasvirlar, audio va videolar qanday ifodalanishini ko’ramiz. Bitlarning o’zi
+faqat holatlarni bildiradi; ularga qanday ma’no berilishi qo’llanilayotgan qoida
+yoki standartga bog’liq.</p>
+<h2 id="kop-uchraydigan-xatolar"><a class="header" href="#kop-uchraydigan-xatolar">Ko’p uchraydigan xatolar</a></h2>
+<ul>
+<li>
+<p><strong>Xato:</strong> <code>10₂</code> ni o’n deb o’qish.
+<strong>Sabab va yechim:</strong> ikkilik <code>10₂</code> soni <code>(1 × 2) + (0 × 1) = 2₁₀</code> ga teng.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> sakkiz bitda faqat sakkizta qiymat bor deb o’ylash.
+<strong>Sabab va yechim:</strong> har bir bitning ikki holati bor, shuning uchun sakkiz bit
+<code>2⁸ = 256</code> ta turli holat yaratadi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> bit va baytni bir xil tushuncha deb hisoblash.
+<strong>Sabab va yechim:</strong> bit bitta <code>0</code> yoki <code>1</code>; bayt esa sakkizta bitdan iborat.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> uch bitning eng katta qiymati 8 deb hisoblash.
+<strong>Sabab va yechim:</strong> uch bitda sakkizta qiymat bor, ammo ular <code>0</code> dan <code>7</code>
+gacha sanaladi.</p>
+</li>
+</ul>
+<h2 id="amaliy-mashqlar"><a class="header" href="#amaliy-mashqlar">Amaliy mashqlar</a></h2>
+<h3 id="1-mashq--ikkilik-sonni-oqish"><a class="header" href="#1-mashq--ikkilik-sonni-oqish">1-mashq — Ikkilik sonni o’qish</a></h3>
+<p>Quyidagi ikkilik sonlarni o’nlik sanoq tizimiga o’tkazing:</p>
+<ol>
+<li><code>001₂</code></li>
+<li><code>011₂</code></li>
+<li><code>100₂</code></li>
+<li><code>110₂</code></li>
+<li><code>111₂</code></li>
+</ol>
+<p>Har bir javobda qaysi o’rin qiymatlarini qo’shganingizni ham yozing.</p>
+<h3 id="2-mashq--sonni-bitlar-bilan-yozish"><a class="header" href="#2-mashq--sonni-bitlar-bilan-yozish">2-mashq — Sonni bitlar bilan yozish</a></h3>
+<p>Quyidagi o’nlik sonlarni to’rt bitli ikkilik son ko’rinishida yozing:</p>
+<ol>
+<li><code>2₁₀</code></li>
+<li><code>5₁₀</code></li>
+<li><code>9₁₀</code></li>
+<li><code>12₁₀</code></li>
+<li><code>15₁₀</code></li>
+</ol>
+<p>Masalan, javob ikki bo’lsa, uni <code>0010₂</code> shaklida yozing.</p>
+<h3 id="3-mashq--nechta-bit-kerak"><a class="header" href="#3-mashq--nechta-bit-kerak">3-mashq — Nechta bit kerak?</a></h3>
+<p>Maktabdagi 100 nafar o’quvchiga takrorlanmaydigan raqam berish kerak. Eng kamida
+nechta bit talab qilinishini toping. Javobingizni <code>2ⁿ</code> qoidasidan foydalanib
+asoslang.</p>
+<h2 id="mini-loyiha--ikkilik-chiroqlar-hisoblagichi"><a class="header" href="#mini-loyiha--ikkilik-chiroqlar-hisoblagichi">Mini-loyiha — Ikkilik chiroqlar hisoblagichi</a></h2>
+<ul>
+<li><strong>Vazifa:</strong> to’rtta qog’oz chiroq yordamida <code>0</code> dan <code>15</code> gacha sanaydigan
+model yarating.</li>
+<li><strong>Talablar:</strong> har bir chiroqqa <code>8</code>, <code>4</code>, <code>2</code>, <code>1</code> o’rin qiymatlaridan birini
+yozing; o’chiq holatni <code>0</code>, yoniq holatni <code>1</code> bilan belgilang; barcha 16 ta
+holatni jadvalga kiriting.</li>
+<li><strong>Qabul mezonlari:</strong> jadvalda <code>0000₂</code> dan <code>1111₂</code> gacha bo’lgan holatlar
+takrorlanmasdan va to’g’ri tartibda ko’rsatilgan bo’lishi kerak.</li>
+</ul>
+<h2 id="ozingizni-tekshiring-1"><a class="header" href="#ozingizni-tekshiring-1">O’zingizni tekshiring</a></h2>
+<ol>
+<li>Muammoni yechish modelidagi kirish, qayta ishlash va chiqish nima?</li>
+<li>Nega elektron qurilmalarda ikkilik sanoq tizimidan foydalanish qulay?</li>
+<li><code>101₂</code> soni o’nlik tizimda nechaga teng?</li>
+<li>Uch bit nechta turli qiymatni ifodalaydi va eng katta qiymat nechaga teng?</li>
+<li>Bit bilan baytning farqi nimada?</li>
+<li>Nega bir baytning eng katta manfiy bo’lmagan qiymati <code>255</code> bo’ladi?</li>
+</ol>
+<h2 id="dars-xulosasi-1"><a class="header" href="#dars-xulosasi-1">Dars xulosasi</a></h2>
+<ul>
+<li>Muammoni kirish, qayta ishlash va chiqish qismlariga ajratish uni aniqroq
+tushunishga yordam beradi.</li>
+<li>Kompyuter ikki barqaror elektron holatni <code>0</code> va <code>1</code> yordamida ifodalaydi.</li>
+<li>Bitta bit ikki holatni, <code>n</code> ta bit esa <code>2ⁿ</code> ta holatni ifodalaydi.</li>
+<li>Ikkilik sonning o’rin qiymatlari o’ngdan chapga <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code> tarzida
+ikki baravar oshib boradi.</li>
+<li>Sakkiz bit bir baytni tashkil qiladi; bir bayt 256 ta turli holatni ifodalaydi.</li>
+<li>Axborotni to’g’ri ifodalash muammoni kompyuter yordamida yechishning birinchi
+qadamlaridan biridir.</li>
+</ul>
+<h2 id="foydalanilgan-manba-1"><a class="header" href="#foydalanilgan-manba-1">Foydalanilgan manba</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#computer-science-and-problem-solving">CS50x 2026, Lecture 0 — Computer Science and Problem Solving</a>
+— muammoni kirish va chiqish orqali ifodalash, ikkilik sanoq, bit va bayt.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ascii-matnni-sonlar-orqali-ifodalash"><a class="header" href="#ascii-matnni-sonlar-orqali-ifodalash">ASCII: matnni sonlar orqali ifodalash</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida-2"><a class="header" href="#dars-haqida-2">Dars haqida</a></h2>
+<p>Oldingi darsda kompyuter sonlarni <code>0</code> va <code>1</code> lar yordamida ifodalashini
+o’rgandik. Ammo kompyuter faqat sonlar bilan ishlamaydi: biz unda ism yozamiz,
+xabar yuboramiz va kitob o’qiymiz. Harflar, raqam belgilari va tinish belgilarini
+ham bitlar yordamida saqlash uchun umumiy kelishuv kerak.</p>
+<p>ASCII ana shunday kelishuvlardan biridir. U har bir belgiga ma’lum bir sonni
+moslaydi. Kompyuter sonni ikkilik ko’rinishda saqlaydi, dastur esa bu sonni
+kerakli belgi sifatida talqin qiladi.</p>
+<h2 id="oquv-maqsadlari-2"><a class="header" href="#oquv-maqsadlari-2">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>kompyuter matnni qanday qilib sonlar orqali ifodalashini tushuntira olasiz;</li>
+<li>ASCII jadvalidan belgi kodini topa olasiz;</li>
+<li>belgini o’nlik va ikkilik kodga aylantira olasiz;</li>
+<li>ASCII kodlar ketma-ketligini matnga qaytara olasiz;</li>
+<li>ASCII imkoniyatlari va cheklovlarini tushuntira olasiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin-2"><a class="header" href="#boshlashdan-oldin-2">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> bit, bayt va ikkilik sanoq tizimi.</li>
+<li><strong>Kerakli dasturlar:</strong> kerak emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 30–40 daqiqa.</li>
+</ul>
+<h2 id="asosiy-terminlar-1"><a class="header" href="#asosiy-terminlar-1">Asosiy terminlar</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>Belgi</td><td>Character</td><td>Matndagi bitta harf, raqam yoki ishora.</td></tr>
+<tr><td>Belgilar to’plami</td><td>Character set</td><td>Belgilar va kodlar jadvali.</td></tr>
+<tr><td>Kodlash</td><td>Encoding</td><td>Belgini son yoki bitlarga aylantirish.</td></tr>
+<tr><td>Dekodlash</td><td>Decoding</td><td>Koddan belgini qayta tiklash.</td></tr>
+<tr><td>ASCII</td><td>ASCII</td><td>128 ta koddan iborat belgilar standarti.</td></tr>
+<tr><td>Nazorat belgisi</td><td>Control character</td><td>Ko’rinmaydigan boshqaruv belgisi.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-kompyuter-harfni-qanday-saqlaydi"><a class="header" href="#1-kompyuter-harfni-qanday-saqlaydi">1. Kompyuter harfni qanday saqlaydi?</a></h2>
+<p>Kompyuter xotirasi belgining shaklini bevosita saqlamaydi. Avval belgi biror
+songa moslanadi, keyin shu son ikkilik ko’rinishda yoziladi.</p>
+<p>Masalan, ASCII standartida katta <code>A</code> harfiga <code>65</code> soni berilgan:</p>
+<pre><code class="language-text">A  →  65₁₀  →  01000001₂
+</code></pre>
+<p><code>65</code> sonining ikkilik ko’rinishini o’rin qiymatlari orqali tekshiramiz:</p>
+<pre><code class="language-text">128  64  32  16   8   4   2   1
+  0   1   0   0   0   0   0   1
+
+64 + 1 = 65
+</code></pre>
+<p>Demak, <code>01000001₂</code> bitlar ketma-ketligi ASCII qoidasi bo’yicha talqin qilinsa,
+ekranda <code>A</code> harfi ko’rsatiladi.</p>
+<p>Bu yerda <strong>talqin</strong> juda muhim. <code>01000001₂</code> ning son sifatidagi qiymati <code>65</code>.
+ASCII jadvali esa «65 kodi <code>A</code> belgisini bildiradi» degan qoida beradi. Bitlarning
+o’zi harf yoki son emas; ularga ma’noni qo’llanilayotgan standart beradi.</p>
+<h2 id="2-ascii-nima"><a class="header" href="#2-ascii-nima">2. ASCII nima?</a></h2>
+<p>ASCII — <em>American Standard Code for Information Interchange</em> nomining
+qisqartmasi. Uni o’zbekchada «Axborot almashish uchun Amerika standart kodi»
+deb tushunish mumkin.</p>
+<p>Standartning vazifasi turli kompyuter va dasturlar bir xil sonni bir xil belgi
+sifatida tushunishini ta’minlashdir. Masalan, bir qurilma <code>65</code> ni <code>A</code> deb yuborsa,
+boshqa qurilma ham uni <code>A</code> deb qabul qiladi.</p>
+<p>ASCII <code>0</code> dan <code>127</code> gacha bo’lgan 128 ta koddan foydalanadi. Chunki yetti bit:</p>
+<pre><code class="language-text">2⁷ = 128 ta turli qiymat
+</code></pre>
+<p>Amalda ASCII belgisi ko’pincha sakkiz bitli baytda saqlanadi. Bunday paytda eng
+chap bit <code>0</code> bo’ladi:</p>
+<pre><code class="language-text">A = 65₁₀ = 1000001₂ = 01000001₂
+                     ↑
+              sakkiz bitli yozuv
+</code></pre>
+<p>Sakkiz bit jami 256 ta holat yarata oladi, ammo standart ASCII ularning faqat
+birinchi 128 tasini, ya’ni <code>0</code>–<code>127</code> oralig’ini belgilaydi.</p>
+<h2 id="3-ascii-jadvalining-tuzilishi"><a class="header" href="#3-ascii-jadvalining-tuzilishi">3. ASCII jadvalining tuzilishi</a></h2>
+<p>ASCII kodlari bir nechta guruhga ajraladi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Kodlar oralig’i</th><th>Mazmuni</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0</code>–<code>31</code></td><td>Ko’rinmaydigan nazorat belgilari.</td></tr>
+<tr><td><code>32</code></td><td>Bo’sh joy belgisi.</td></tr>
+<tr><td><code>33</code>–<code>47</code></td><td>Tinish va maxsus belgilar.</td></tr>
+<tr><td><code>48</code>–<code>57</code></td><td><code>0</code> dan <code>9</code> gacha bo’lgan raqam belgilari.</td></tr>
+<tr><td><code>65</code>–<code>90</code></td><td>Katta lotin harflari.</td></tr>
+<tr><td><code>97</code>–<code>122</code></td><td>Kichik lotin harflari.</td></tr>
+<tr><td><code>127</code></td><td><code>DEL</code> nazorat belgisi.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Quyidagi kichik jadval keyingi misol va mashqlar uchun yetarli:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Belgi</th><th>O’nlik kod</th><th>Belgi</th><th>O’nlik kod</th></tr>
+</thead>
+<tbody>
+<tr><td>bo’sh joy</td><td>32</td><td><code>!</code></td><td>33</td></tr>
+<tr><td><code>0</code></td><td>48</td><td><code>5</code></td><td>53</td></tr>
+<tr><td><code>A</code></td><td>65</td><td><code>C</code></td><td>67</td></tr>
+<tr><td><code>H</code></td><td>72</td><td><code>I</code></td><td>73</td></tr>
+<tr><td><code>L</code></td><td>76</td><td><code>M</code></td><td>77</td></tr>
+<tr><td><code>O</code></td><td>79</td><td><code>S</code></td><td>83</td></tr>
+<tr><td><code>Z</code></td><td>90</td><td><code>a</code></td><td>97</td></tr>
+</tbody>
+</table>
+</div>
+<p>ASCII katta va kichik harflarni alohida belgilar deb hisoblaydi. Masalan:</p>
+<pre><code class="language-text">A = 65
+a = 97
+</code></pre>
+<p>Shuning uchun dastur uchun <code>A</code> va <code>a</code> har doim ham bir xil emas.</p>
+<h2 id="4-hi-xabarini-kodlash"><a class="header" href="#4-hi-xabarini-kodlash">4. <code>HI!</code> xabarini kodlash</a></h2>
+<p>Endi <code>HI!</code> matnidagi har bir belgini ASCII jadvalidan topamiz:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Belgi</th><th>O’nlik kod</th><th>Sakkiz bitli ikkilik kod</th></tr>
+</thead>
+<tbody>
+<tr><td><code>H</code></td><td>72</td><td><code>01001000</code></td></tr>
+<tr><td><code>I</code></td><td>73</td><td><code>01001001</code></td></tr>
+<tr><td><code>!</code></td><td>33</td><td><code>00100001</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Matnning o’nlik kodlar ketma-ketligi:</p>
+<pre><code class="language-text">H   I   !
+72  73  33
+</code></pre>
+<p>Xotirada esa u quyidagicha ko’rinishi mumkin:</p>
+<pre><code class="language-text">01001000 01001001 00100001
+</code></pre>
+<p>Kodlash (encoding) vaqtida matn belgilaridan kodlarga o’tdik:</p>
+<pre><code class="language-text">HI!  →  72 73 33  →  01001000 01001001 00100001
+</code></pre>
+<p>Dekodlash (decoding) vaqtida shu jarayonni teskari bajaramiz:</p>
+<pre><code class="language-text">01001000 01001001 00100001  →  72 73 33  →  HI!
+</code></pre>
+<h2 id="5-korinmaydigan-belgilar-ham-mavjud"><a class="header" href="#5-korinmaydigan-belgilar-ham-mavjud">5. Ko’rinmaydigan belgilar ham mavjud</a></h2>
+<p>Matndagi barcha belgilar ekranda ko’rinmaydi. Ayrim kodlar dastur yoki qurilmaga
+amal bajarishni bildiradi. Ular nazorat belgilari (control characters) deyiladi.</p>
+<p>Masalan:</p>
+<ul>
+<li><code>10</code> — yangi qatorga o’tish belgisi (<code>LF</code>, line feed);</li>
+<li><code>13</code> — karetka boshiga qaytish belgisi (<code>CR</code>, carriage return);</li>
+<li><code>0</code> — nol belgisi (<code>NUL</code>, null character).</li>
+</ul>
+<p>Bo’sh joy ham ko’rinmasa-da, matnning haqiqiy belgisi hisoblanadi va uning ASCII
+kodi <code>32</code>. Masalan, <code>HI!</code> va <code>HI !</code> bir xil matn emas: ikkinchisida <code>I</code> bilan
+<code>!</code> orasida yana bir belgi mavjud.</p>
+<h2 id="6-raqam-belgisi-va-son-bir-xil-emas"><a class="header" href="#6-raqam-belgisi-va-son-bir-xil-emas">6. Raqam belgisi va son bir xil emas</a></h2>
+<p>Ekrandagi <code>5</code> belgisi bilan hisob-kitobdagi <code>5</code> sonini farqlash kerak.</p>
+<ul>
+<li>son sifatidagi <code>5</code> sakkiz bitda <code>00000101₂</code> bo’lishi mumkin;</li>
+<li>matndagi <code>5</code> belgisining ASCII kodi <code>53</code>, ya’ni <code>00110101₂</code>.</li>
+</ul>
+<pre><code class="language-text">5 soni       → 00000101₂
+"5" belgisi  → 00110101₂
+</code></pre>
+<p>Ko’rinishda ikkalasi ham beshga bog’liq, lekin kompyuter ularni turli maqsadda
+ishlatadi. Biri hisoblash uchun son, ikkinchisi esa matn tarkibidagi belgi.
+Dasturlashda ma’lumot turini to’g’ri tanlash shu sababli muhimdir.</p>
+<h2 id="7-ascii-standarti-chegarasi"><a class="header" href="#7-ascii-standarti-chegarasi">7. ASCII standarti chegarasi</a></h2>
+<p>ASCII ingliz tili uchun yaratilgan. Unda lotin alifbosining asosiy harflari,
+raqamlar va keng tarqalgan tinish belgilari bor. Ammo dunyodagi barcha yozuvlarni
+128 ta kodga joylashtirib bo’lmaydi.</p>
+<p>Masalan, ASCII quyidagilarni to’g’ridan-to’g’ri ifodalay olmaydi:</p>
+<ul>
+<li>o’zbek kirill alifbosidagi harflarni;</li>
+<li>arab, xitoy, yapon va boshqa yozuvlarni;</li>
+<li><code>é</code>, <code>ñ</code> kabi qo’shimcha belgili harflarni;</li>
+<li>emoji belgilarini;</li>
+<li>o’zbekcha <code>oʻ</code> va <code>gʻ</code> dagi maxsus tipografik belgini.</li>
+</ul>
+<p>Oddiy <code>'</code> apostrofi ASCII jadvalida bor. Shu sababli <code>o'</code> shaklini yozish
+mumkin, ammo tipografik <code>oʻ</code> shaklidagi maxsus belgi ASCII tarkibiga kirmaydi.</p>
+<p>Ko’proq tillar va belgilarni yagona standartda ifodalash uchun Unicode
+yaratilgan. Uni keyingi darsda o’rganamiz.</p>
+<h2 id="kop-uchraydigan-xatolar-1"><a class="header" href="#kop-uchraydigan-xatolar-1">Ko’p uchraydigan xatolar</a></h2>
+<ul>
+<li>
+<p><strong>Xato:</strong> ASCII standartining o’zi ikkilik sanoq tizimi deb o’ylash.
+<strong>Sabab va yechim:</strong> ASCII belgilarni sonlarga moslaydigan jadval. Sonlar esa
+xotirada ikkilik ko’rinishda saqlanadi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> <code>A</code> va <code>a</code> ni bitta kod deb hisoblash.
+<strong>Sabab va yechim:</strong> katta <code>A</code> kodi <code>65</code>, kichik <code>a</code> kodi esa <code>97</code>.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> matndagi <code>5</code> bilan matematik <code>5</code> bir xil saqlanadi deb o’ylash.
+<strong>Sabab va yechim:</strong> <code>"5"</code> belgisining ASCII kodi <code>53</code>; sonning qiymati esa
+<code>5</code>.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> ASCII barcha tillarni ifodalay oladi deb hisoblash.
+<strong>Sabab va yechim:</strong> standartda atigi 128 ta kod bor. Boshqa yozuvlar uchun
+Unicode kabi kengroq standart kerak.</p>
+</li>
+</ul>
+<h2 id="amaliy-mashqlar-1"><a class="header" href="#amaliy-mashqlar-1">Amaliy mashqlar</a></h2>
+<h3 id="1-mashq--kodni-matnga-aylantiring"><a class="header" href="#1-mashq--kodni-matnga-aylantiring">1-mashq — Kodni matnga aylantiring</a></h3>
+<p>Quyidagi ASCII kodlarini jadval yordamida o’qing:</p>
+<pre><code class="language-text">67 83 53 48
+</code></pre>
+<p>Har bir son qaysi belgiga mos kelishini alohida yozing, keyin belgilarni
+birlashtiring.</p>
+<h3 id="2-mashq--sozni-kodlang"><a class="header" href="#2-mashq--sozni-kodlang">2-mashq — So’zni kodlang</a></h3>
+<p><code>SALOM!</code> matnidagi har bir belgining o’nlik ASCII kodini toping. Natijani
+quyidagi shaklda yozing:</p>
+<pre><code class="language-text">S  → ...
+A  → ...
+L  → ...
+O  → ...
+M  → ...
+!  → ...
+</code></pre>
+<h3 id="3-mashq--onlikdan-ikkilikka"><a class="header" href="#3-mashq--onlikdan-ikkilikka">3-mashq — O’nlikdan ikkilikka</a></h3>
+<p>Quyidagi belgilar kodini sakkiz bitli ikkilik ko’rinishga o’tkazing:</p>
+<ol>
+<li><code>A</code> — <code>65</code></li>
+<li><code>H</code> — <code>72</code></li>
+<li><code>!</code> — <code>33</code></li>
+</ol>
+<p>Har bir javobni o’rin qiymatlari yordamida tekshiring.</p>
+<h3 id="4-mashq--farqni-tushuntiring"><a class="header" href="#4-mashq--farqni-tushuntiring">4-mashq — Farqni tushuntiring</a></h3>
+<p>Quyidagi ikki bitlar ketma-ketligini taqqoslang:</p>
+<pre><code class="language-text">00000101
+00110101
+</code></pre>
+<p>Ulardan qaysi biri <code>5</code> sonini, qaysi biri ASCII jadvalidagi <code>5</code> belgisini
+mumkin? Javobingizni o’nlik qiymatlar yordamida asoslang.</p>
+<h2 id="mini-loyiha--ascii-xabar-almashinuvi"><a class="header" href="#mini-loyiha--ascii-xabar-almashinuvi">Mini-loyiha — ASCII xabar almashinuvi</a></h2>
+<ul>
+<li><strong>Vazifa:</strong> kamida beshta ASCII belgisidan iborat maxfiy xabar tuzing.</li>
+<li><strong>Kodlash:</strong> har bir belgini avval o’nlik, keyin sakkiz bitli ikkilik kodga
+aylantiring.</li>
+<li><strong>Sinov:</strong> faqat kodlar ketma-ketligini sherigingizga bering va undan xabarni
+tiklashni so’rang.</li>
+<li><strong>Qabul mezonlari:</strong> har bir belgi, o’nlik kod va ikkilik kod jadvalda
+ko’rsatilishi; tiklangan xabar asl xabar bilan bir xil bo’lishi kerak.</li>
+</ul>
+<h2 id="ozingizni-tekshiring-2"><a class="header" href="#ozingizni-tekshiring-2">O’zingizni tekshiring</a></h2>
+<ol>
+<li>Nega matnni saqlash uchun belgilar standarti kerak?</li>
+<li>ASCII standartida katta <code>A</code> harfining o’nlik va ikkilik kodi qanday?</li>
+<li>ASCII nechta kodni belgilaydi va buning uchun nechta bit yetarli?</li>
+<li><code>72 73 33</code> kodlari qaysi matnni bildiradi?</li>
+<li>Nega <code>5</code> soni bilan <code>"5"</code> belgisi xotirada turlicha ifodalanishi mumkin?</li>
+<li>ASCII nega o’zbek tilidagi barcha belgilar uchun yetarli emas?</li>
+</ol>
+<h2 id="dars-xulosasi-2"><a class="header" href="#dars-xulosasi-2">Dars xulosasi</a></h2>
+<ul>
+<li>Kompyuter matn belgilarini sonlar orqali ifodalaydi.</li>
+<li>ASCII har bir belgini <code>0</code>–<code>127</code> oralig’idagi kodga moslaydi.</li>
+<li>Yetti bit 128 ta qiymat uchun yetadi; ASCII amalda ko’pincha baytda saqlanadi.</li>
+<li>Bir xil bitlar qaysi qoida ishlatilishiga qarab son yoki belgi sifatida talqin
+qilinishi mumkin.</li>
+<li>Katta va kichik harflar, bo’sh joy hamda raqam belgilari alohida kodlarga ega.</li>
+<li>ASCII standarti imkoniyatlari cheklangan; ko’proq tillar va belgilar uchun Unicode
+kerak bo’ladi.</li>
+</ul>
+<h2 id="foydalanilgan-manba-2"><a class="header" href="#foydalanilgan-manba-2">Foydalanilgan manba</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#ascii">CS50x 2026, Lecture 0 — ASCII</a>
+— matnni sonlar va ikkilik kodlar orqali ifodalash.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="unicode-dunyo-yozuvlarini-ifodalash"><a class="header" href="#unicode-dunyo-yozuvlarini-ifodalash">Unicode: dunyo yozuvlarini ifodalash</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida-3"><a class="header" href="#dars-haqida-3">Dars haqida</a></h2>
+<p>ASCII ingliz alifbosining asosiy harflari, raqamlar va ayrim belgilarni
+ifodalash uchun yetarli. Ammo odamlar yuzlab tillarda yozadi. O’zbekcha maxsus
+belgilar, kirill yozuvi, arab va xitoy yozuvlari hamda emojilarni ASCII dagi
+128 ta kodga sig’dirib bo’lmaydi.</p>
+<p>Unicode bu muammoni hal qilish uchun yaratilgan xalqaro standartdir. Uning
+maqsadi — qaysi qurilma, dastur yoki tildan foydalanilishidan qat’i nazar, har
+bir matn belgisiga umumiy raqam berish.</p>
+<p>Bu darsda Unicode kod nuqtasi, UTF-8 kodlash usuli va emojilarning turli
+qurilmalarda nega biroz boshqacha ko’rinishi bilan tanishamiz.</p>
+<h2 id="oquv-maqsadlari-3"><a class="header" href="#oquv-maqsadlari-3">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>ASCII nega barcha tillar uchun yetarli emasligini tushuntira olasiz;</li>
+<li>Unicode va kod nuqtasi tushunchalarini izohlay olasiz;</li>
+<li>Unicode bilan UTF-8 orasidagi farqni tushuntira olasiz;</li>
+<li>UTF-8 da bitta belgi bir yoki bir necha bayt egallashini anglaysiz;</li>
+<li>belgi va uning ekrandagi ko’rinishi orasidagi farqni bilasiz;</li>
+<li>noto’g’ri kodlash sababli buzilgan matnni taniy olasiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin-3"><a class="header" href="#boshlashdan-oldin-3">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> bit, bayt, ASCII, kodlash va dekodlash.</li>
+<li><strong>Kerakli dasturlar:</strong> shart emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 35–45 daqiqa.</li>
+</ul>
+<h2 id="asosiy-terminlar-2"><a class="header" href="#asosiy-terminlar-2">Asosiy terminlar</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>Unicode</td><td>Unicode</td><td>Dunyo yozuvlari uchun belgilar standarti.</td></tr>
+<tr><td>Kod nuqtasi</td><td>Code point</td><td>Belgiga berilgan yagona raqam.</td></tr>
+<tr><td>Kodlash usuli</td><td>Encoding form</td><td>Kod nuqtasini baytlarga aylantirish qoidasi.</td></tr>
+<tr><td>UTF-8</td><td>UTF-8</td><td>Unicode matnini baytlarda saqlash usuli.</td></tr>
+<tr><td>Glif</td><td>Glyph</td><td>Belgining ekrandagi yoki qog’ozdagi shakli.</td></tr>
+<tr><td>Shrift</td><td>Font</td><td>Gliflarning tashqi ko’rinishini belgilovchi to’plam.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-nega-yana-bir-standart-kerak"><a class="header" href="#1-nega-yana-bir-standart-kerak">1. Nega yana bir standart kerak?</a></h2>
+<p>ASCII standartida faqat 128 ta kod mavjud. Bunga katta va kichik ingliz
+harflari, raqamlar, tinish belgilari hamda nazorat belgilari kiradi. Quyidagi
+belgilar esa ASCII tarkibida yo’q:</p>
+<pre><code class="language-text">ў  қ  ғ  ҳ  ش  中  é  ñ  oʻ  😀
+</code></pre>
+<p>Unicode yaratilishidan oldin turli tillar uchun ko’plab alohida kodlash
+jadvallari ishlatilgan. Bir jadvaldagi ma’lum bir son boshqa jadvalda butunlay
+boshqa belgini anglatishi mumkin edi. Matn bir tizimdan boshqasiga o’tganda
+noto’g’ri belgilar paydo bo’lish xavfi mavjud edi.</p>
+<p>Unicode umumiy kelishuv beradi:</p>
+<pre><code class="language-text">har bir belgi  →  yagona raqam
+</code></pre>
+<p>Bu kelishuv matnni turli operatsion tizim, telefon, brauzer va dasturlar orasida
+almashishga yordam beradi.</p>
+<h2 id="2-kod-nuqtasi-nima"><a class="header" href="#2-kod-nuqtasi-nima">2. Kod nuqtasi nima?</a></h2>
+<p>Unicode har bir belgiga kod nuqtasi (code point), ya’ni yagona raqam beradi.
+Kod nuqtasi odatda <code>U+</code> belgisi va o’n oltilik raqam bilan yoziladi.</p>
+<p>O’n oltilik sanoq tizimi (hexadecimal) <code>0</code>–<code>9</code> raqamlari bilan birga <code>A</code>–<code>F</code>
+harflaridan ham foydalanadi. Hozir bu sonlarni hisoblash shart emas. <code>U+0041</code>
+yozuvini Unicode katalogidagi manzil deb tushunishning o’zi yetarli.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Belgi</th><th>Kod nuqtasi</th><th>Ma’nosi</th></tr>
+</thead>
+<tbody>
+<tr><td><code>A</code></td><td><code>U+0041</code></td><td>Katta lotincha A.</td></tr>
+<tr><td><code>a</code></td><td><code>U+0061</code></td><td>Kichik lotincha a.</td></tr>
+<tr><td><code>ʻ</code></td><td><code>U+02BB</code></td><td>O’girib yozilgan vergul belgisi.</td></tr>
+<tr><td><code>ў</code></td><td><code>U+045E</code></td><td>Kichik kirillcha qisqa U.</td></tr>
+<tr><td><code>😀</code></td><td><code>U+1F600</code></td><td>Kulayotgan yuz emojisi.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Masalan, <code>U+0041</code> har doim <code>A</code> belgisini bildiradi. Qurilma yoki dastur
+o’zgarsa ham kod nuqtasining ma’nosi o’zgarmaydi.</p>
+<h3 id="ozbekcha-oʻ-misoli"><a class="header" href="#ozbekcha-oʻ-misoli">O’zbekcha <code>oʻ</code> misoli</a></h3>
+<p>O’zbek lotin yozuvidagi <code>oʻ</code> ko’rinishda bitta harfdek qabul qilinadi. Ammo
+kompyuterda u ko’pincha ikkita Unicode kod nuqtasidan tuziladi:</p>
+<pre><code class="language-text">o   → U+006F
+ʻ   → U+02BB
+oʻ  → U+006F U+02BB
+</code></pre>
+<p>Klaviaturada tez-tez yoziladigan oddiy <code>'</code> apostrofi esa boshqa belgi:</p>
+<pre><code class="language-text">'   → U+0027
+ʻ   → U+02BB
+</code></pre>
+<p><code>o'</code> va <code>oʻ</code> bir-biriga o’xshasa ham, ularning kodlari bir xil emas. Shu sababli
+qidiruv, saralash yoki matnni taqqoslashda farq paydo bo’lishi mumkin.</p>
+<h2 id="3-unicode-va-utf-8-bir-xil-emas"><a class="header" href="#3-unicode-va-utf-8-bir-xil-emas">3. Unicode va UTF-8 bir xil emas</a></h2>
+<p>Unicode belgiga <strong>qaysi raqam</strong> berilishini belgilaydi. Lekin shu raqamni fayl
+yoki xotirada baytlar ko’rinishida qanday saqlash kerakligini alohida kodlash
+usuli belgilaydi.</p>
+<p>Buni kitob katalogiga o’xshatish mumkin:</p>
+<ul>
+<li>Unicode kod nuqtasi — kitobning katalog raqami;</li>
+<li>UTF-8 — shu raqamni jo’natish yoki saqlash usuli.</li>
+</ul>
+<p>Unicode uchun bir nechta kodlash usuli bor. Ularning keng tarqalganlari:</p>
+<ul>
+<li>UTF-8;</li>
+<li>UTF-16;</li>
+<li>UTF-32.</li>
+</ul>
+<p>Ularning barchasi Unicode belgilarini ifodalay oladi, ammo baytlarni joylashtirish
+qoidalari farq qiladi. Ushbu darsda internet va matn fayllarida keng qo’llanadigan
+UTF-8 ga e’tibor qaratamiz.</p>
+<h2 id="4-utf-8-qanday-ishlaydi"><a class="header" href="#4-utf-8-qanday-ishlaydi">4. UTF-8 qanday ishlaydi?</a></h2>
+<p>UTF qisqartmasi <em>Unicode Transformation Format</em> degan ma’noni anglatadi. UTF-8
+Unicode kod nuqtalarini sakkiz bitli birliklar, ya’ni baytlar ketma-ketligiga
+aylantiradi.</p>
+<p>UTF-8 o’zgaruvchan uzunlikdagi kodlash usulidir:</p>
+<ul>
+<li>ASCII tarkibidagi belgi 1 bayt egallaydi;</li>
+<li>boshqa belgilar 2, 3 yoki 4 bayt egallashi mumkin.</li>
+</ul>
+<p>Quyidagi jadvalda baytlar o’n oltilik ko’rinishda berilgan:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Belgi</th><th>Kod nuqtasi</th><th>Bayt</th><th>UTF-8 baytlari</th></tr>
+</thead>
+<tbody>
+<tr><td><code>A</code></td><td><code>U+0041</code></td><td>1</td><td><code>41</code></td></tr>
+<tr><td><code>é</code></td><td><code>U+00E9</code></td><td>2</td><td><code>C3 A9</code></td></tr>
+<tr><td><code>ʻ</code></td><td><code>U+02BB</code></td><td>2</td><td><code>CA BB</code></td></tr>
+<tr><td><code>😀</code></td><td><code>U+1F600</code></td><td>4</td><td><code>F0 9F 98 80</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Bu jadvaldan ikkita muhim xulosa chiqadi:</p>
+<ol>
+<li>Har bir ko’rinadigan belgi aynan bir bayt egallamaydi.</li>
+<li>Kod nuqtasi bilan uni saqlaydigan baytlar bir xil tushuncha emas.</li>
+</ol>
+<p>Masalan, <code>😀</code> uchun Unicode katalogidagi raqam <code>U+1F600</code>, UTF-8 dagi xotira
+ko’rinishi esa to’rtta baytdan iborat: <code>F0 9F 98 80</code>.</p>
+<h2 id="5-utf-8-ascii-bilan-qanday-ishlaydi"><a class="header" href="#5-utf-8-ascii-bilan-qanday-ishlaydi">5. UTF-8 ASCII bilan qanday ishlaydi?</a></h2>
+<p>UTF-8 ASCII bilan mos ishlash uchun loyihalangan. ASCII dagi <code>0</code>–<code>127</code> kodlari
+UTF-8 da ham aynan bir bayt va o’sha qiymat bilan saqlanadi.</p>
+<p>Masalan:</p>
+<pre><code class="language-text">A
+ASCII kodi: 65
+UTF-8 bayti: 65₁₀ = 41₁₆ = 01000001₂
+</code></pre>
+<p>Shuning uchun faqat oddiy ingliz harflaridan tuzilgan eski ASCII matni ham
+to’g’ri UTF-8 matni hisoblanadi. Qo’shimcha tillar yoki emoji kerak bo’lganda
+UTF-8 bir belgini ifodalash uchun ko’proq baytdan foydalanadi.</p>
+<p>Quyidagi ikki xabar ko’rinishda bir xil uzunlikda emas, xotirada esa farq yanada
+aniq bo’lishi mumkin:</p>
+<pre><code class="language-text">Hi!   → har bir belgi 1 baytdan
+Hi! 😀 → emoji 4 bayt egallaydi
+</code></pre>
+<p>Demak, matndagi belgilar sonini sanash bilan uning baytlar sonini sanash har
+doim bir xil natija bermaydi.</p>
+<h2 id="6-belgi-va-uning-korinishi"><a class="header" href="#6-belgi-va-uning-korinishi">6. Belgi va uning ko’rinishi</a></h2>
+<p>Unicode belgining ma’nosi va kod nuqtasini standartlashtiradi, ammo uning aniq
+rasmini belgilab bermaydi. Belgining ekrandagi shakli glif (glyph) deyiladi.
+Glifning qanday chizilishi shrift (font), dastur va qurilmaga bog’liq.</p>
+<p>Masalan, <code>😀</code> kodi barcha mos tizimlarda <code>U+1F600</code>. Lekin uning rangi, ko’zlari
+yoki og’iz shakli telefon ishlab chiqaruvchisi va ishlatilgan shriftga qarab
+biroz farq qilishi mumkin. Kod bir xil, tasvir esa aynan bir xil bo’lishi shart
+emas.</p>
+<p>Agar qurilmadagi shrift ma’lum belgini chiza olmasa, uning o’rnida bo’sh
+to’rtburchak yoki savol belgisi ko’rinishi mumkin. Bu Unicode kod nuqtasi yo’q
+degani emas; qurilma uning glifiga ega emasligini anglatishi mumkin.</p>
+<p>Unicode standarti rivojlanishda davom etadi. Yangi yozuvlar, maxsus belgilar va
+emojilar qo’shiladi. Eski qurilma juda yangi belgini taniy olmasligi ham mumkin.</p>
+<h2 id="7-bitta-korinadigan-belgi-murakkab-bolishi-mumkin"><a class="header" href="#7-bitta-korinadigan-belgi-murakkab-bolishi-mumkin">7. Bitta ko’rinadigan belgi murakkab bo’lishi mumkin</a></h2>
+<p>Boshlanishida «har bir belgi uchun bitta kod nuqtasi» deb fikrlash qulay. Amalda
+esa bitta ko’rinadigan belgi bir nechta kod nuqtasidan tuzilishi mumkin.</p>
+<p>Biz ko’rgan <code>oʻ</code> bunga sodda misol:</p>
+<pre><code class="language-text">oʻ = o + ʻ = U+006F U+02BB
+</code></pre>
+<p>Ayrim urg’uli harflar ham ikki xil yo’l bilan ifodalanishi mumkin. Masalan,
+<code>é</code> tayyor bitta kod nuqtasi yoki <code>e</code> bilan alohida urg’u belgisining
+birikmasidan tashkil topishi mumkin. Murakkab emojilar ham bir nechta kod
+nuqtasining ketma-ketligi bo’lishi mumkin.</p>
+<p>Shuning uchun dasturlashda «belgilar soni», «kod nuqtalari soni» va «baytlar
+soni» doimo bir xil tushuncha emas.</p>
+<h2 id="8-kodlash-notogri-tanlansa-nima-boladi"><a class="header" href="#8-kodlash-notogri-tanlansa-nima-boladi">8. Kodlash noto’g’ri tanlansa nima bo’ladi?</a></h2>
+<p>Matn UTF-8 da saqlanib, dastur uni boshqa kodlash usulida o’qisa, ekranda
+tushunarsiz belgilar paydo bo’lishi mumkin. Bunday buzilgan matn ko’pincha
+<em>mojibake</em> deb ataladi.</p>
+<p>Jarayonni quyidagicha tasavvur qiling:</p>
+<pre><code class="language-text">Unicode matni
+    ↓ UTF-8 bilan kodlash
+baytlar
+    ↓ boshqa qoida bilan noto'g'ri dekodlash
+buzilgan matn
+</code></pre>
+<p>Muammo asl matnda emas, kodlash va dekodlash qoidalari bir-biriga mos
+kelmaganida. Shu sababli matn fayli, veb-sahifa yoki ma’lumotlar bazasida qaysi
+kodlash ishlatilayotganini to’g’ri ko’rsatish muhim.</p>
+<h2 id="kop-uchraydigan-xatolar-2"><a class="header" href="#kop-uchraydigan-xatolar-2">Ko’p uchraydigan xatolar</a></h2>
+<ul>
+<li>
+<p><strong>Xato:</strong> Unicode va UTF-8 aynan bir narsa deb o’ylash.
+<strong>Sabab va yechim:</strong> Unicode belgilar va kod nuqtalarini belgilaydi; UTF-8 esa
+ularni baytlar ko’rinishida saqlaydi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> har bir belgi bir bayt egallaydi deb hisoblash.
+<strong>Sabab va yechim:</strong> UTF-8 da belgi 1 dan 4 baytgacha egallashi mumkin.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> emoji turli telefonda boshqacha ko’rinsa, uning kodi ham boshqa deb
+o’ylash.
+<strong>Sabab va yechim:</strong> kod nuqtasi bir xil bo’lishi mumkin, glifni esa qurilma
+yoki shrift chizadi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> ko’rinishda o’xshash belgilar kompyuter uchun ham bir xil deb
+hisoblash.
+<strong>Sabab va yechim:</strong> oddiy <code>'</code> belgisi <code>U+0027</code>, o’zbekcha <code>ʻ</code> esa <code>U+02BB</code>.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> matn buzilsa, ma’lumot butunlay yo’qolgan deb xulosa qilish.
+<strong>Sabab va yechim:</strong> ba’zan baytlar to’g’ri bo’ladi, faqat noto’g’ri kodlash
+usuli bilan o’qilgan bo’ladi.</p>
+</li>
+</ul>
+<h2 id="amaliy-mashqlar-2"><a class="header" href="#amaliy-mashqlar-2">Amaliy mashqlar</a></h2>
+<h3 id="1-mashq--ascii-yetarlimi"><a class="header" href="#1-mashq--ascii-yetarlimi">1-mashq — ASCII yetarlimi?</a></h3>
+<p>Quyidagi belgilar uchun ASCII yetarlimi yoki Unicode kerakmi, aniqlang:</p>
+<pre><code class="language-text">A   !   7   ў   oʻ   é   中   😀
+</code></pre>
+<p>Har bir javobingizni qisqa izohlang.</p>
+<h3 id="2-mashq--kod-nuqtalarini-oqing"><a class="header" href="#2-mashq--kod-nuqtalarini-oqing">2-mashq — Kod nuqtalarini o’qing</a></h3>
+<p>Quyidagi jadvalga qarab kod nuqtalarini belgilar bilan almashtiring:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Kod nuqtasi</th><th>Belgi</th></tr>
+</thead>
+<tbody>
+<tr><td><code>U+0041</code></td><td>…</td></tr>
+<tr><td><code>U+0061</code></td><td>…</td></tr>
+<tr><td><code>U+02BB</code></td><td>…</td></tr>
+<tr><td><code>U+045E</code></td><td>…</td></tr>
+<tr><td><code>U+1F600</code></td><td>…</td></tr>
+</tbody>
+</table>
+</div>
+<p>Kerakli ma’lumotlarni dars boshidagi jadvaldan topishingiz mumkin.</p>
+<h3 id="3-mashq--kod-nuqtasi-va-baytni-farqlang"><a class="header" href="#3-mashq--kod-nuqtasi-va-baytni-farqlang">3-mashq — Kod nuqtasi va baytni farqlang</a></h3>
+<p>Quyidagi gaplardagi bo’sh joylarni to’ldiring:</p>
+<ol>
+<li><code>😀</code> belgisining Unicode kod nuqtasi — <code>________</code>.</li>
+<li><code>😀</code> belgisining UTF-8 baytlari — <code>________</code>.</li>
+<li><code>A</code> belgisi UTF-8 da <code>________</code> bayt egallaydi.</li>
+<li><code>é</code> belgisi UTF-8 da <code>________</code> bayt egallaydi.</li>
+</ol>
+<h3 id="4-mashq--oxshash-belgilarni-tekshiring"><a class="header" href="#4-mashq--oxshash-belgilarni-tekshiring">4-mashq — O’xshash belgilarni tekshiring</a></h3>
+<p>Quyidagi ikki yozuvni diqqat bilan taqqoslang:</p>
+<pre><code class="language-text">O'zbekiston
+Oʻzbekiston
+</code></pre>
+<p>Ular ko’rinishda qanchalik o’xshash? Apostrof vazifasidagi belgilar qaysi kod
+nuqtalariga ega? Nega qidiruv tizimi ularni ba’zan ikki xil matn deb qabul
+qilishi mumkinligini tushuntiring.</p>
+<h2 id="mini-loyiha--kop-tilli-xabar-pasporti"><a class="header" href="#mini-loyiha--kop-tilli-xabar-pasporti">Mini-loyiha — Ko’p tilli xabar pasporti</a></h2>
+<ul>
+<li><strong>Vazifa:</strong> lotin yozuvi, ASCII tarkibida bo’lmagan kamida bitta harf va bitta
+emojidan iborat qisqa xabar tuzing.</li>
+<li><strong>Tahlil:</strong> xabardagi har bir belgini jadvalga yozing; uning kod nuqtasi,
+ASCII tarkibida bor-yo’qligi va UTF-8 dagi baytlar sonini aniqlang.</li>
+<li><strong>Sinov:</strong> xabarni ikki xil dastur yoki qurilmada ochib, belgilar ko’rinishini
+solishtiring.</li>
+<li><strong>Qabul mezonlari:</strong> kamida beshta belgi tahlil qilinishi, kod nuqtalari
+<code>U+...</code> shaklida yozilishi va emoji ko’rinishidagi farq izohlanishi kerak.</li>
+</ul>
+<h2 id="ozingizni-tekshiring-3"><a class="header" href="#ozingizni-tekshiring-3">O’zingizni tekshiring</a></h2>
+<ol>
+<li>ASCII nega dunyodagi barcha yozuvlarni ifodalash uchun yetarli emas?</li>
+<li>Unicode kod nuqtasi nima va u qanday yoziladi?</li>
+<li>Unicode bilan UTF-8 orasidagi farq nimada?</li>
+<li>Nega <code>A</code> UTF-8 da bir bayt, <code>😀</code> esa to’rt bayt egallaydi?</li>
+<li>Bir xil emoji nega turli qurilmalarda biroz boshqacha ko’rinishi mumkin?</li>
+<li><code>o'</code> va <code>oʻ</code> yozuvlari kompyuter uchun nega bir xil bo’lmasligi mumkin?</li>
+<li>Kodlash va dekodlash usullari mos kelmasa, qanday muammo yuz beradi?</li>
+</ol>
+<h2 id="dars-xulosasi-3"><a class="header" href="#dars-xulosasi-3">Dars xulosasi</a></h2>
+<ul>
+<li>Unicode turli tillardagi harflar, belgilar va emojilarga umumiy kod
+nuqtalarini beradi.</li>
+<li>Kod nuqtasi <code>U+...</code> shaklida yoziladi va belgining yagona raqamini bildiradi.</li>
+<li>UTF-8 Unicode kod nuqtalarini bir baytdan to’rt baytgacha bo’lgan ketma-ketlik
+yordamida saqlaydi.</li>
+<li>ASCII belgilari UTF-8 da o’zining avvalgi bir baytli qiymatini saqlab qoladi.</li>
+<li>Unicode belgining ma’nosini belgilaydi; uning aniq ko’rinishini shrift va
+qurilma belgilaydi.</li>
+<li>Bitta ko’rinadigan belgi bir nechta kod nuqtasi yoki baytdan iborat bo’lishi
+mumkin.</li>
+<li>Matnni to’g’ri ko’rsatish uchun kodlash va dekodlash usullari mos bo’lishi
+kerak.</li>
+</ul>
+<h2 id="foydalanilgan-manbalar"><a class="header" href="#foydalanilgan-manbalar">Foydalanilgan manbalar</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#unicode">CS50x 2026, Lecture 0 — Unicode</a>
+— Unicode yordamida turli belgilar va emojilarni ifodalash.</li>
+<li><a href="https://www.unicode.org/standard/WhatIsUnicode.html">Unicode Consortium — What is Unicode?</a>
+— Unicode standartining maqsadi va belgilar uchun yagona raqamlar.</li>
+<li><a href="https://www.unicode.org/faq/utf_bom.html">Unicode Consortium — UTF FAQ</a>
+— UTF-8, UTF-16 va UTF-32 kodlash usullari haqida ma’lumot.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="rgb-ranglarni-sonlar-orqali-ifodalash"><a class="header" href="#rgb-ranglarni-sonlar-orqali-ifodalash">RGB: ranglarni sonlar orqali ifodalash</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida-4"><a class="header" href="#dars-haqida-4">Dars haqida</a></h2>
+<p>Kompyuter sonlarni bitlar, matnni esa ASCII yoki Unicode kodlari yordamida
+ifodalaydi. Raqamli tasvirlar ham oxir-oqibat sonlardan tashkil topadi. Ekrandagi
+har bir kichik nuqtaning rangi qizil, yashil va ko’k yorug’lik miqdorlari orqali
+yozilishi mumkin.</p>
+<p>Bu usul RGB rang modeli deb ataladi. RGB nomi inglizcha <em>red</em>, <em>green</em> va <em>blue</em>,
+ya’ni qizil, yashil va ko’k so’zlarining bosh harflaridan olingan.</p>
+<p>Ushbu darsda RGB kanallari, piksel, tasvir o’lchami va bir xil baytlar turli
+ma’noda talqin qilinishi mumkinligini o’rganamiz.</p>
+<h2 id="oquv-maqsadlari-4"><a class="header" href="#oquv-maqsadlari-4">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>RGB rang modelining uchta kanalini tushuntira olasiz;</li>
+<li>kanal qiymatlari yordamida asosiy ranglarni hosil qila olasiz;</li>
+<li>piksel va tasvir o’lchami tushunchalarini farqlay olasiz;</li>
+<li>oddiy RGB tasvirining xotira hajmini hisoblay olasiz;</li>
+<li>bir xil baytlar matn yoki rang sifatida talqin qilinishini tushuntira olasiz;</li>
+<li>tasvir, video va audio bitlarda qanday ifodalanishini umumiy tasvirlay olasiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin-4"><a class="header" href="#boshlashdan-oldin-4">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> bit, bayt, ikkilik sanoq tizimi va ASCII.</li>
+<li><strong>Kerakli dasturlar:</strong> shart emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 35–45 daqiqa.</li>
+</ul>
+<h2 id="asosiy-terminlar-3"><a class="header" href="#asosiy-terminlar-3">Asosiy terminlar</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>RGB</td><td>RGB</td><td>Qizil, yashil va ko’kdan rang hosil qilish modeli.</td></tr>
+<tr><td>Rang kanali</td><td>Color channel</td><td>Bitta asosiy rangning miqdori.</td></tr>
+<tr><td>Piksel</td><td>Pixel</td><td>Raqamli tasvirning eng kichik rangli nuqtasi.</td></tr>
+<tr><td>Rastr tasvir</td><td>Raster image</td><td>Piksellar katagidan tashkil topgan tasvir.</td></tr>
+<tr><td>O’lcham</td><td>Dimensions</td><td>Tasvirning eni va bo’yi, piksellarda.</td></tr>
+<tr><td>Kadr</td><td>Frame</td><td>Videoni tashkil qiluvchi alohida tasvir.</td></tr>
+<tr><td>Siqish</td><td>Compression</td><td>Ma’lumot hajmini kamaytirish usuli.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-rgb-rang-modeli"><a class="header" href="#1-rgb-rang-modeli">1. RGB rang modeli</a></h2>
+<p>Ekran ranglarni yorug’lik yordamida ko’rsatadi. Har bir piksel ichida uchta rang
+kanali (color channel) mavjud:</p>
+<ul>
+<li><code>R</code> — qizil (<em>red</em>);</li>
+<li><code>G</code> — yashil (<em>green</em>);</li>
+<li><code>B</code> — ko’k (<em>blue</em>).</li>
+</ul>
+<p>Rang odatda uchta son bilan yoziladi:</p>
+<pre><code class="language-text">RGB(qizil, yashil, ko'k)
+</code></pre>
+<p>Masalan:</p>
+<pre><code class="language-text">RGB(255, 0, 0)
+</code></pre>
+<p>Bu yozuvda qizil kanal eng yuqori, yashil va ko’k kanallar esa eng past
+qiymatda. Natijada sof qizil rang hosil bo’ladi.</p>
+<h2 id="2-kanal-qiymatlari"><a class="header" href="#2-kanal-qiymatlari">2. Kanal qiymatlari</a></h2>
+<p>Oddiy RGB tasvirlarda har bir kanal uchun sakkiz bit, ya’ni bir bayt ajratiladi.
+Sakkiz bit <code>0</code> dan <code>255</code> gacha bo’lgan qiymatlarni ifodalaydi.</p>
+<ul>
+<li><code>0</code> — shu rangdan yorug’lik qo’shilmaydi;</li>
+<li><code>255</code> — shu rang eng yuqori kuchda qo’shiladi;</li>
+<li>oraliq sonlar — rangning qisman qo’shilishini bildiradi.</li>
+</ul>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Rang</th><th>R</th><th>G</th><th>B</th><th>RGB yozuvi</th></tr>
+</thead>
+<tbody>
+<tr><td>Qora</td><td>0</td><td>0</td><td>0</td><td><code>RGB(0, 0, 0)</code></td></tr>
+<tr><td>Oq</td><td>255</td><td>255</td><td>255</td><td><code>RGB(255, 255, 255)</code></td></tr>
+<tr><td>Qizil</td><td>255</td><td>0</td><td>0</td><td><code>RGB(255, 0, 0)</code></td></tr>
+<tr><td>Yashil</td><td>0</td><td>255</td><td>0</td><td><code>RGB(0, 255, 0)</code></td></tr>
+<tr><td>Ko’k</td><td>0</td><td>0</td><td>255</td><td><code>RGB(0, 0, 255)</code></td></tr>
+<tr><td>Sariq</td><td>255</td><td>255</td><td>0</td><td><code>RGB(255, 255, 0)</code></td></tr>
+<tr><td>Havorang (cyan)</td><td>0</td><td>255</td><td>255</td><td><code>RGB(0, 255, 255)</code></td></tr>
+<tr><td>Qirmizi (magenta)</td><td>255</td><td>0</td><td>255</td><td><code>RGB(255, 0, 255)</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Uchala kanal <code>0</code> bo’lsa, yorug’lik chiqmaydi va qora rang ko’rinadi. Uchala kanal
+<code>255</code> bo’lsa, qizil, yashil va ko’k yorug’lik qo’shilib oq rang hosil qiladi.</p>
+<h3 id="yoruglik-va-boyoq-bir-xil-aralashmaydi"><a class="header" href="#yoruglik-va-boyoq-bir-xil-aralashmaydi">Yorug’lik va bo’yoq bir xil aralashmaydi</a></h3>
+<p>RGB qo’shuvchi rang modeli (additive color model) hisoblanadi. Unda yorug’lik
+qo’shilgani sari rang oq rangga yaqinlashadi. Masalan, qizil va yashil yorug’lik
+birgalikda sariq rang beradi.</p>
+<p>Bo’yoqlar esa boshqacha aralashadi. Bir nechta bo’yoq qo’shilganda ular ko’proq
+yorug’likni yutadi va rang odatda qorayadi. Shuning uchun ekrandagi RGB
+aralashuvini bo’yoq aralashtirish qoidasi bilan adashtirmaslik kerak.</p>
+<h2 id="3-kulrang-va-yorqinlik"><a class="header" href="#3-kulrang-va-yorqinlik">3. Kulrang va yorqinlik</a></h2>
+<p>Qizil, yashil va ko’k kanallarga aynan bir xil qiymat berilsa, kulrang tus hosil
+bo’ladi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>RGB qiymati</th><th>Natija</th></tr>
+</thead>
+<tbody>
+<tr><td><code>RGB(0, 0, 0)</code></td><td>Qora.</td></tr>
+<tr><td><code>RGB(64, 64, 64)</code></td><td>To’q kulrang.</td></tr>
+<tr><td><code>RGB(128, 128, 128)</code></td><td>O’rta kulrang.</td></tr>
+<tr><td><code>RGB(192, 192, 192)</code></td><td>Och kulrang.</td></tr>
+<tr><td><code>RGB(255, 255, 255)</code></td><td>Oq.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Qiymatlar birga oshgani sari piksel yorqinroq ko’rinadi. Rangli tus hosil qilish
+uchun esa kanallarning qiymatlari bir-biridan farq qilishi kerak.</p>
+<h2 id="4-bir-xil-sonlar-boshqa-mano"><a class="header" href="#4-bir-xil-sonlar-boshqa-mano">4. Bir xil sonlar, boshqa ma’no</a></h2>
+<p>ASCII darsida quyidagi uchta sonni ko’rgan edik:</p>
+<pre><code class="language-text">72 73 33
+</code></pre>
+<p>ASCII jadvali bo’yicha ular uchta belgini bildiradi:</p>
+<pre><code class="language-text">72 → H
+73 → I
+33 → !
+
+Natija: HI!
+</code></pre>
+<p>RGB qoidasi bo’yicha esa ayni sonlar bitta pikselning rang kanallaridir:</p>
+<pre><code class="language-text">R = 72
+G = 73
+B = 33
+
+Natija: RGB(72, 73, 33)
+</code></pre>
+<p>Bu qiymatlar to’q zaytun tusiga yaqin rang hosil qiladi. Sonlar o’zgarmadi, ammo
+ularni talqin qilish qoidasi o’zgardi:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Talqin</th><th><code>72 73 33</code> nimani bildiradi?</th></tr>
+</thead>
+<tbody>
+<tr><td>ASCII</td><td>Uchta belgi: <code>HI!</code>.</td></tr>
+<tr><td>RGB</td><td>Bitta pikselning uchta rang kanali.</td></tr>
+</tbody>
+</table>
+</div>
+<p>Demak, baytlarning o’zi «matn» yoki «rang» degan yorliqqa ega emas. Dastur fayl
+turi, format va boshqa ma’lumotlar orqali ularni qanday talqin qilishni biladi.</p>
+<h2 id="5-piksel-nima"><a class="header" href="#5-piksel-nima">5. Piksel nima?</a></h2>
+<p>Piksel (pixel) — rastr tasvirning eng kichik rangli nuqtasi. Ekrandagi rasmni
+juda kattalashtirsangiz, u mayda kvadratlarga o’xshash piksellardan tuzilganini
+ko’rishingiz mumkin.</p>
+<p>Oddiy 24-bitli RGB modelida bitta piksel uch baytdan iborat:</p>
+<pre><code class="language-text">qizil kanal   = 1 bayt = 8 bit
+yashil kanal  = 1 bayt = 8 bit
+ko'k kanal    = 1 bayt = 8 bit
+--------------------------------
+bitta piksel  = 3 bayt = 24 bit
+</code></pre>
+<p>Har bir kanal 256 ta qiymatga ega. Uch kanalning barcha birikmalari soni:</p>
+<pre><code class="language-text">256 × 256 × 256 = 16 777 216 ta rang
+</code></pre>
+<p>Bu hisob odatiy sakkiz bitli RGB modeliga tegishli. Professional tasvirlarda har
+bir kanal uchun ko’proq bit ishlatilishi ham mumkin.</p>
+<h2 id="6-tasvir--piksellar-katagi"><a class="header" href="#6-tasvir--piksellar-katagi">6. Tasvir — piksellar katagi</a></h2>
+<p>Rastr tasvir (raster image) qator va ustunlarga joylashtirilgan piksellar
+to’plamidir. Masalan, juda kichik tasvirni ranglarning bosh harflari bilan
+quyidagicha tasavvur qilish mumkin:</p>
+<pre><code class="language-text">Q  Q  O  O
+Q  S  S  O
+K  S  S  Y
+K  K  Y  Y
+</code></pre>
+<p>Bu yerda, masalan:</p>
+<ul>
+<li><code>Q</code> — qizil;</li>
+<li><code>O</code> — oq;</li>
+<li><code>S</code> — sariq;</li>
+<li><code>K</code> — ko’k;</li>
+<li><code>Y</code> — yashil.</li>
+</ul>
+<p>Haqiqiy faylda harflar emas, har bir katak uchun RGB qiymatlari saqlanadi.
+Dastur ularni o’qib, piksellarni kerakli rangda ko’rsatadi.</p>
+<p>Tasvir o’lchami (dimensions) uning eni va bo’yidagi piksellar soni bilan
+ifodalanadi:</p>
+<pre><code class="language-text">eni × bo'yi
+</code></pre>
+<p>Masalan, <code>100 × 100</code> o’lchamli tasvirda:</p>
+<pre><code class="language-text">100 × 100 = 10 000 ta piksel
+</code></pre>
+<p>Har bir piksel uch bayt egallasa, siqilmagan rang ma’lumotining hajmi:</p>
+<pre><code class="language-text">10 000 × 3 = 30 000 bayt
+</code></pre>
+<p>Haqiqiy rasm faylida sarlavha, rang profili va boshqa yordamchi ma’lumotlar ham
+bo’lishi mumkin. PNG yoki JPEG kabi formatlar ma’lumotni siqishi sababli fayl
+hajmi oddiy hisobdan kichik yoki boshqa miqdorda chiqishi mumkin.</p>
+<h2 id="7-shaffoflik-va-rgba"><a class="header" href="#7-shaffoflik-va-rgba">7. Shaffoflik va RGBA</a></h2>
+<p>Ba’zi tasvirlarda pikselning rangidan tashqari uning shaffofligi ham saqlanadi.
+Buning uchun alfa kanali (alpha channel) qo’shiladi va model RGBA deb ataladi:</p>
+<pre><code class="language-text">RGBA(qizil, yashil, ko'k, alfa)
+</code></pre>
+<p>Alfa ham bir bayt bilan saqlanadigan modelda:</p>
+<ul>
+<li><code>0</code> — to’liq shaffof;</li>
+<li><code>255</code> — to’liq ko’rinadigan;</li>
+<li>oraliq qiymat — qisman shaffof.</li>
+</ul>
+<p>Masalan, <code>RGBA(255, 0, 0, 128)</code> qisman shaffof qizil pikselni bildirishi mumkin.
+Bunday modelda bir piksel uch emas, to’rt bayt egallaydi.</p>
+<h2 id="8-tasvirdan-videoga"><a class="header" href="#8-tasvirdan-videoga">8. Tasvirdan videoga</a></h2>
+<p>Video ketma-ket ko’rsatiladigan ko’plab tasvirlardan tashkil topadi. Har bir
+alohida tasvir kadr (frame) deyiladi. Kadrlar tez almashganda ko’zimiz ularni
+harakat sifatida qabul qiladi. Bu varaqlari tez aylantiriladigan rasmlar
+daftariga o’xshaydi.</p>
+<p>Masalan, video bir soniyada 30 ta kadr ko’rsatsa, bir daqiqada:</p>
+<pre><code class="language-text">30 × 60 = 1 800 ta kadr
+</code></pre>
+<p>Har bir kadr juda ko’p pikselga ega bo’lishi mumkin. Shu sababli video katta
+hajm egallaydi va odatda maxsus usullar yordamida siqiladi.</p>
+<p>Audio RGB orqali ifodalanmaydi, ammo u ham sonlar va bitlar yordamida saqlanadi.
+Ovoz ma’lum vaqt oralig’ida o’lchanadi va bu o’lchovlar ketma-ketligi raqamlar
+ko’rinishida yoziladi. Demak, matn, rasm, video va ovoz turli qoidalardan
+foydalansa ham, kompyuter xotirasida barchasi bitlarga aylanadi.</p>
+<h2 id="kop-uchraydigan-xatolar-3"><a class="header" href="#kop-uchraydigan-xatolar-3">Ko’p uchraydigan xatolar</a></h2>
+<ul>
+<li>
+<p><strong>Xato:</strong> <code>RGB(0, 0, 0)</code> rang yo’qligini bildiradi deb o’ylash.
+<strong>Sabab va yechim:</strong> uchala kanal nol bo’lganda ekran yorug’lik chiqarmaydi va
+natijada qora rang ko’rinadi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> <code>RGB(255, 0, 0)</code> uchta alohida piksel deb hisoblash.
+<strong>Sabab va yechim:</strong> uchta son bitta pikselning qizil, yashil va ko’k
+kanallarini bildiradi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> RGB ranglari bo’yoq kabi aralashadi deb o’ylash.
+<strong>Sabab va yechim:</strong> RGB yorug’likka asoslangan qo’shuvchi model; barcha
+kanallar maksimum bo’lsa, oq rang hosil bo’ladi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> har bir rasm fayli aynan <code>eni × bo'yi × 3</code> bayt bo’ladi deb o’ylash.
+<strong>Sabab va yechim:</strong> bu siqilmagan RGB ma’lumotining soddalashtirilgan hisobi.
+Fayl formati, siqish va qo’shimcha ma’lumotlar yakuniy hajmni o’zgartiradi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> bir xil baytlar har doim bir xil ma’noni bildiradi deb hisoblash.
+<strong>Sabab va yechim:</strong> ma’no ularni o’qiyotgan format va dasturga bog’liq.</p>
+</li>
+</ul>
+<h2 id="amaliy-mashqlar-3"><a class="header" href="#amaliy-mashqlar-3">Amaliy mashqlar</a></h2>
+<h3 id="1-mashq--rangni-aniqlang"><a class="header" href="#1-mashq--rangni-aniqlang">1-mashq — Rangni aniqlang</a></h3>
+<p>Quyidagi RGB qiymatlari qaysi rangni ifodalashini toping:</p>
+<ol>
+<li><code>RGB(0, 0, 0)</code></li>
+<li><code>RGB(255, 255, 255)</code></li>
+<li><code>RGB(255, 255, 0)</code></li>
+<li><code>RGB(0, 0, 255)</code></li>
+<li><code>RGB(128, 128, 128)</code></li>
+</ol>
+<h3 id="2-mashq--rang-aralashtiring"><a class="header" href="#2-mashq--rang-aralashtiring">2-mashq — Rang aralashtiring</a></h3>
+<p>Bo’sh joylarni kerakli kanal qiymatlari bilan to’ldiring:</p>
+<pre><code class="language-text">qizil    = RGB(..., 0, 0)
+yashil   = RGB(0, ..., 0)
+havorang = RGB(0, ..., ...)
+oq       = RGB(..., ..., ...)
+</code></pre>
+<p>Har bir qiymat nima sababdan <code>0</code> yoki <code>255</code> bo’lishini tushuntiring.</p>
+<h3 id="3-mashq--ikki-xil-talqin"><a class="header" href="#3-mashq--ikki-xil-talqin">3-mashq — Ikki xil talqin</a></h3>
+<p><code>72 73 33</code> sonlarini avval ASCII, keyin RGB qoidasi bo’yicha talqin qiling.
+Nega birinchi holatda uchta belgi, ikkinchisida esa bitta piksel hosil bo’lishini
+izohlang.</p>
+<h3 id="4-mashq--tasvir-hajmini-hisoblang"><a class="header" href="#4-mashq--tasvir-hajmini-hisoblang">4-mashq — Tasvir hajmini hisoblang</a></h3>
+<p><code>200 × 100</code> o’lchamli siqilmagan RGB tasvir bor. Har bir piksel uch bayt
+egallaydi.</p>
+<ol>
+<li>Tasvirda nechta piksel bor?</li>
+<li>Rang ma’lumotlari jami necha bayt egallaydi?</li>
+<li>Agar alfa kanali qo’shilsa, jami necha bayt kerak bo’ladi?</li>
+</ol>
+<h3 id="5-mashq--piksel-katagini-oqing"><a class="header" href="#5-mashq--piksel-katagini-oqing">5-mashq — Piksel katagini o’qing</a></h3>
+<p>Quyidagi <code>2 × 2</code> tasvir qaysi ranglardan tuzilganini aniqlang:</p>
+<pre><code class="language-text">RGB(255, 0, 0)      RGB(0, 255, 0)
+RGB(0, 0, 255)      RGB(255, 255, 255)
+</code></pre>
+<p>Javobni yuqori chap, yuqori o’ng, pastki chap va pastki o’ng tartibida yozing.</p>
+<h2 id="mini-loyiha--8--8-piksel-art"><a class="header" href="#mini-loyiha--8--8-piksel-art">Mini-loyiha — 8 × 8 piksel-art</a></h2>
+<ul>
+<li><strong>Vazifa:</strong> <code>8 × 8</code> katakda sodda belgi, yuz yoki naqsh chizing.</li>
+<li><strong>Ranglar:</strong> ko’pi bilan beshta rang tanlang va har biriga RGB qiymati bering.</li>
+<li><strong>Kodlash:</strong> kataklardagi ranglarni bitta harf bilan belgilang va ranglar
+lug’atini tuzing.</li>
+<li><strong>Hisoblash:</strong> tasvir siqilmagan 24-bitli RGB bo’lsa, rang ma’lumotlari necha
+bayt egallashini aniqlang.</li>
+<li><strong>Qabul mezonlari:</strong> 64 ta katak to’ldirilishi, ranglar lug’atida har bir
+harfning RGB qiymati ko’rsatilishi va xotira hisobi to’g’ri bo’lishi kerak.</li>
+</ul>
+<h2 id="ozingizni-tekshiring-4"><a class="header" href="#ozingizni-tekshiring-4">O’zingizni tekshiring</a></h2>
+<ol>
+<li>RGB qisqartmasidagi har bir harf nimani bildiradi?</li>
+<li>Nega odatiy RGB kanalining qiymati <code>0</code> dan <code>255</code> gacha?</li>
+<li>Qora, oq va sariq ranglarning RGB qiymatlari qanday?</li>
+<li>Bir xil <code>72 73 33</code> sonlari qanday qilib matn yoki rangni bildirishi mumkin?</li>
+<li>Oddiy 24-bitli RGB modelida bitta piksel necha bayt egallaydi?</li>
+<li>Tasvir o’lchami bilan uning fayl hajmi orasida qanday bog’lanish bor?</li>
+<li>Video bilan rastr tasvir orasidagi bog’lanish qanday?</li>
+<li>Alfa kanali qanday vazifani bajaradi?</li>
+</ol>
+<h2 id="dars-xulosasi-4"><a class="header" href="#dars-xulosasi-4">Dars xulosasi</a></h2>
+<ul>
+<li>RGB modeli rangni qizil, yashil va ko’k kanallar yordamida ifodalaydi.</li>
+<li>Oddiy RGB modelida har bir kanal bir bayt va <code>0</code>–<code>255</code> oralig’idagi qiymatga
+ega.</li>
+<li>Uch kanal birgalikda bitta piksel rangini belgilaydi; odatda bu 24 bit yoki
+uch bayt ma’lumotdir.</li>
+<li>Rastr tasvirlar qator va ustunlarga joylashtirilgan piksellardan tuziladi.</li>
+<li>Bir xil baytlar kontekstga qarab matn, rang yoki boshqa ma’lumotni bildirishi
+mumkin.</li>
+<li>Video tez almashadigan tasvirlar ketma-ketligi, audio esa vaqt bo’yicha olingan
+raqamli o’lchovlar sifatida saqlanishi mumkin.</li>
+<li>Siqish tasvir va video fayllari hajmini kamaytirishga yordam beradi.</li>
+</ul>
+<h2 id="foydalanilgan-manba-3"><a class="header" href="#foydalanilgan-manba-3">Foydalanilgan manba</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#rgb">CS50x 2026, Lecture 0 — RGB</a>
+— rang, piksel, tasvir, video va audioni raqamlar orqali ifodalash.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="algoritmlar-muammoni-qadamlar-bilan-yechish"><a class="header" href="#algoritmlar-muammoni-qadamlar-bilan-yechish">Algoritmlar: muammoni qadamlar bilan yechish</a></h1>
+<blockquote>
+<p><strong>Holat:</strong> tayyor</p>
+</blockquote>
+<h2 id="dars-haqida-5"><a class="header" href="#dars-haqida-5">Dars haqida</a></h2>
+<p>Bir muammoni bir nechta usul bilan yechish mumkin. Ularning barchasi to’g’ri
+natija berishi mumkin, ammo ayrimlari boshqalaridan ancha tez yoki qulay bo’ladi.
+Dasturchining vazifasi faqat ishlaydigan yo’lni topish emas, balki vaziyatga mos
+va samarali yo’lni tanlashdan ham iborat.</p>
+<p>Muammoni yechish uchun bajariladigan aniq va tartibli qadamlar ketma-ketligi
+algoritm (algorithm) deyiladi. Ushbu darsda telefon kitobidan ism qidirish
+misolida uch xil algoritmni solishtiramiz va ularning ishlash vaqti ma’lumot
+miqdori oshganda qanday o’zgarishini ko’ramiz.</p>
+<h2 id="oquv-maqsadlari-5"><a class="header" href="#oquv-maqsadlari-5">O’quv maqsadlari</a></h2>
+<p>Bu darsni tugatgach, siz:</p>
+<ul>
+<li>algoritm tushunchasini o’z so’zlaringiz bilan izohlay olasiz;</li>
+<li>algoritmning kirish, qadamlar va chiqish qismlarini ajrata olasiz;</li>
+<li>chiziqli va ikkilik qidiruvni farqlay olasiz;</li>
+<li>algoritmning to’g’riligi va samaradorligini alohida baholay olasiz;</li>
+<li><code>n</code>, <code>O(n)</code> va <code>O(log n)</code> yozuvlarining sodda ma’nosini tushuntira olasiz;</li>
+<li>tartiblangan ma’lumot ikkilik qidiruv uchun nega zarurligini anglaysiz.</li>
+</ul>
+<h2 id="boshlashdan-oldin-5"><a class="header" href="#boshlashdan-oldin-5">Boshlashdan oldin</a></h2>
+<ul>
+<li><strong>Zarur bilimlar:</strong> kirish, chiqish va muammoni qismlarga ajratish tushunchasi.</li>
+<li><strong>Kerakli dasturlar:</strong> shart emas.</li>
+<li><strong>Taxminiy vaqt:</strong> 40–50 daqiqa.</li>
+</ul>
+<h2 id="asosiy-terminlar-4"><a class="header" href="#asosiy-terminlar-4">Asosiy terminlar</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>Algoritm</td><td>Algorithm</td><td>Muammoni yechuvchi aniq qadamlar ketma-ketligi.</td></tr>
+<tr><td>To’g’rilik</td><td>Correctness</td><td>Algoritm kerakli natijani berishi.</td></tr>
+<tr><td>Samaradorlik</td><td>Efficiency</td><td>Vaqt va resurslardan oqilona foydalanish.</td></tr>
+<tr><td>Kirish hajmi</td><td>Input size</td><td>Qayta ishlanadigan ma’lumot miqdori.</td></tr>
+<tr><td>Chiziqli qidiruv</td><td>Linear search</td><td>Elementlarni ketma-ket tekshirish.</td></tr>
+<tr><td>Ikkilik qidiruv</td><td>Binary search</td><td>Oraliqni har qadamda yarmiga qisqartirish.</td></tr>
+<tr><td>Ishlash vaqti</td><td>Running time</td><td>Algoritm sarflaydigan qadamlar miqdori.</td></tr>
+<tr><td>Big-O</td><td>Big O notation</td><td>O’sish tezligini ifodalovchi yozuv.</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-algoritm-nima"><a class="header" href="#1-algoritm-nima">1. Algoritm nima?</a></h2>
+<p>Algoritm — ma’lum kirish ma’lumotini kerakli chiqishga aylantiradigan qadamlar
+ketma-ketligi.</p>
+<pre><code class="language-text">kirish  →  algoritm  →  chiqish
+</code></pre>
+<p>Masalan, ikki sonning kattasini topish vazifasini olaylik:</p>
+<ul>
+<li><strong>Kirish:</strong> ikkita son.</li>
+<li><strong>Qadamlar:</strong> sonlarni taqqoslash va kattasini tanlash.</li>
+<li><strong>Chiqish:</strong> kattaroq son.</li>
+</ul>
+<p>Algoritm faqat kompyuter dasturi bo’lishi shart emas. Ovqat retsepti, manzilga
+borish yo’riqnomasi va kitobni javondan topish tartibi ham algoritmga o’xshaydi.
+Muhimi, qadamlar bajaruvchiga tushunarli va kerakli natijaga olib boradigan
+bo’lishi kerak.</p>
+<h2 id="2-yaxshi-algoritmning-xususiyatlari"><a class="header" href="#2-yaxshi-algoritmning-xususiyatlari">2. Yaxshi algoritmning xususiyatlari</a></h2>
+<p>Foydali algoritm odatda quyidagi xususiyatlarga ega:</p>
+<ol>
+<li><strong>Aniqlik.</strong> Har bir qadam bir ma’noli va tushunarli yozilgan.</li>
+<li><strong>Tugallanish.</strong> Algoritm cheksiz davom etmaydi va bir nuqtada to’xtaydi.</li>
+<li><strong>To’g’rilik.</strong> Ruxsat etilgan kirishlar uchun kutilgan natijani beradi.</li>
+<li><strong>Umumiylik.</strong> Faqat bitta misolni emas, shu turdagi vazifalarni yechadi.</li>
+<li><strong>Samaradorlik.</strong> Keragidan ortiq vaqt yoki xotira sarflamaydi.</li>
+</ol>
+<p>Masalan, «telefon kitobini och va ismni top» ko’rsatmasi yetarlicha aniq emas.
+Qaysi betdan boshlash, keyingi qadam nima va ism kitobda bo’lmasa nima qilish
+kerakligi ko’rsatilmagan.</p>
+<p>Tez ishlaydigan, ammo ba’zan noto’g’ri javob beradigan usul yaxshi algoritm
+hisoblanmaydi. Avval to’g’rilik, keyin samaradorlik haqida o’ylash kerak.</p>
+<h2 id="3-vazifa-telefon-kitobidan-ism-topish"><a class="header" href="#3-vazifa-telefon-kitobidan-ism-topish">3. Vazifa: telefon kitobidan ism topish</a></h2>
+<p>Tasavvur qiling, qo’lingizda ismlar alifbo tartibida yozilgan katta telefon
+kitobi bor. Undan <code>Malika</code> ismini topishingiz kerak.</p>
+<ul>
+<li><strong>Kirish:</strong> tartiblangan telefon kitobi va qidirilayotgan ism.</li>
+<li><strong>Chiqish:</strong> ism joylashgan bet yoki «ism topilmadi» degan natija.</li>
+</ul>
+<p>Bu muammoni bir nechta algoritm bilan yechish mumkin. Ularni solishtirish uchun
+kitobdagi ismlar sonini <code>n</code> bilan belgilaymiz. Masalan, kitobda 100 ta ism bo’lsa,
+<code>n = 100</code>.</p>
+<h2 id="4-birinchi-usul-birma-bir-qidirish"><a class="header" href="#4-birinchi-usul-birma-bir-qidirish">4. Birinchi usul: birma-bir qidirish</a></h2>
+<p>Eng sodda usul kitobning birinchi betidan boshlash va har bir keyingi betni
+navbat bilan tekshirishdir:</p>
+<pre><code class="language-text">1. Kitobning birinchi betini oching.
+2. Betdagi ismni tekshiring.
+3. Kerakli ism bo'lsa, qidiruvni tugating.
+4. Keyingi bet mavjud bo'lsa, unga o'ting va 2-qadamni takrorlang.
+5. Betlar tugasa, "ism topilmadi" deb xabar bering.
+</code></pre>
+<p>Bu chiziqli qidiruv (linear search) deyiladi. Ism birinchi betda bo’lsa, faqat
+bitta tekshiruv yetadi. Ism oxirgi betda yoki umuman kitobda bo’lmasa, barcha
+<code>n</code> ta ismni tekshirishga to’g’ri keladi.</p>
+<pre><code class="language-text">eng yaxshi holat: 1 ta tekshiruv
+eng yomon holat:  n ta tekshiruv
+</code></pre>
+<p>Chiziqli qidiruvning afzalligi shundaki, u ma’lumot tartiblanmagan bo’lsa ham
+ishlaydi. Kamchiligi — ma’lumot ko’paygani sari qadamlar soni ham deyarli shu
+miqdorda oshadi.</p>
+<h2 id="5-ikkinchi-usul-ikki-betdan-qidirish"><a class="header" href="#5-ikkinchi-usul-ikki-betdan-qidirish">5. Ikkinchi usul: ikki betdan qidirish</a></h2>
+<p>Qidiruvni tezlashtirish uchun har safar ikki bet oldinga o’tish mumkin. Bunday
+yondashuvda taxminan <code>n/2</code> ta qadam kerak bo’ladi:</p>
+<pre><code class="language-text">100 ta bet → taxminan 50 ta qadam
+1 000 ta bet → taxminan 500 ta qadam
+</code></pre>
+<p>Bu birma-bir qidirishdan ikki baravar tezroq ko’rinadi. Ammo muhim xavf mavjud:
+agar faqat har ikkinchi betni ko’rsangiz, kerakli ism tashlab ketilgan betda
+qolishi mumkin.</p>
+<p>Algoritm to’g’ri bo’lishi uchun o’tilgan juftlikdagi ikkala bet ham tekshirilishi
+yoki qidirilayotgan joydan o’tib ketilganda oldingi betga qaytilishi kerak.
+Shuningdek, kitobdagi betlar soni toq bo’lsa, oxirgi bet unutilmasligi lozim.</p>
+<p>Bu usul amalda qadamlarning doimiy qismini kamaytiradi. Lekin ma’lumot hajmi ikki
+baravar oshsa, ish miqdori ham taxminan ikki baravar oshadi. Uning o’sish turi
+chiziqli qidiruvnikiga o’xshash bo’lib qoladi.</p>
+<h2 id="6-uchinchi-usul-oraliqni-yarmiga-bolish"><a class="header" href="#6-uchinchi-usul-oraliqni-yarmiga-bolish">6. Uchinchi usul: oraliqni yarmiga bo’lish</a></h2>
+<p>Telefon kitobidagi ismlar alifbo tartibida ekanidan foydalanib, ancha tezroq
+qidirish mumkin:</p>
+<pre><code class="language-text">1. Kitobning o'rtasini oching.
+2. O'rtadagi ismni qidirilayotgan ism bilan taqqoslang.
+3. Ismlar teng bo'lsa, qidiruvni tugating.
+4. Kerakli ism oldin kelsa, faqat chap yarmini qoldiring.
+5. Kerakli ism keyin kelsa, faqat o'ng yarmini qoldiring.
+6. Qolgan qism uchun shu qadamlarni takrorlang.
+7. Qidiriladigan qism qolmasa, "ism topilmadi" deb xabar bering.
+</code></pre>
+<p>Bu ikkilik qidiruv (binary search) deyiladi. Har bir taqqoslashdan keyin
+qidiriladigan ma’lumotning yarmi tashlab yuboriladi.</p>
+<p>Jarayon quyidagicha qisqaradi:</p>
+<pre><code class="language-text">1 024 → 512 → 256 → 128 → 64 → 32 → 16 → 8 → 4 → 2 → 1
+</code></pre>
+<p><code>1 024</code> ta elementni bittagacha qisqartirish uchun atigi 10 marta yarmiga
+bo’lish yetadi. Aniq taqqoslashlar soni algoritm tafsiloti va qidirilayotgan
+elementga qarab bittaga farq qilishi mumkin, ammo o’sish juda sekin bo’ladi.</p>
+<h3 id="sonlar-bilan-misol"><a class="header" href="#sonlar-bilan-misol">Sonlar bilan misol</a></h3>
+<p>Quyidagi tartiblangan ro’yxatdan <code>44</code> sonini qidiramiz:</p>
+<pre><code class="language-text">[3, 8, 12, 19, 24, 31, 44, 57]
+</code></pre>
+<ol>
+<li>O’rtadagi <code>19</code> ni tekshiramiz. <code>44</code> katta, chap yarmini tashlaymiz.</li>
+<li>Qolgan qismdagi <code>31</code> ni tekshiramiz. <code>44</code> katta, chap qismini tashlaymiz.</li>
+<li>Keyingi o’rta qiymat <code>44</code>. Son topildi.</li>
+</ol>
+<p>Birma-bir qidiruv <code>44</code> ga yetguncha yettita qiymatni ko’rishi mumkin edi.
+Ikkilik qidiruv esa bu misolda uchta taqqoslash bilan tugadi.</p>
+<h2 id="7-nega-tartib-muhim"><a class="header" href="#7-nega-tartib-muhim">7. Nega tartib muhim?</a></h2>
+<p>Ikkilik qidiruv faqat ma’lumot tartiblangan bo’lsa ishlaydi. O’rtadagi qiymat
+qidirilayotgan qiymatdan kichik ekanini bilsak, qidirilayotgan qiymat o’ngda
+bo’lishi mumkin degan xulosaga faqat tartib tufayli kelamiz.</p>
+<p>Masalan, tartiblanmagan ro’yxatni olaylik:</p>
+<pre><code class="language-text">[31, 3, 57, 12, 44, 8, 24, 19]
+</code></pre>
+<p>O’rtadagi <code>12</code> soni <code>44</code> dan kichik. Lekin <code>44</code> ning qaysi tomonda ekanini bu
+ma’lumotdan aniqlab bo’lmaydi. Ro’yxatning yarmini tashlash to’g’ri javobni ham
+yo’qotishi mumkin.</p>
+<p>Ma’lumotni avval tartiblash ham vaqt talab qiladi. Bir marta qidirish kerak bo’lsa,
+oddiy chiziqli qidiruv qulayroq bo’lishi mumkin. Bir ro’yxatdan ko’p marta
+qidirilsa, uni oldindan tartiblash keyingi qidiruvlarni tezlashtiradi.</p>
+<h2 id="8-algoritm-samaradorligini-olchash"><a class="header" href="#8-algoritm-samaradorligini-olchash">8. Algoritm samaradorligini o’lchash</a></h2>
+<p>Bir algoritm noutbukda tez, boshqasida sekin ishlashi mumkin. Shu sababli
+algoritmlarni faqat soniya bilan solishtirish har doim ham qulay emas. Buning
+o’rniga kirish hajmi oshganda qadamlar soni qanday o’sishiga qaraymiz.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Usul</th><th>Eng yomon holatdagi qadamlar</th><th>O’sish turi</th></tr>
+</thead>
+<tbody>
+<tr><td>Birma-bir qidirish</td><td>taxminan <code>n</code></td><td><code>O(n)</code></td></tr>
+<tr><td>Ikki betdan qidirish</td><td>taxminan <code>n/2</code></td><td><code>O(n)</code></td></tr>
+<tr><td>Ikkilik qidiruv</td><td>taxminan <code>log₂ n</code></td><td><code>O(log n)</code></td></tr>
+</tbody>
+</table>
+</div>
+<p>Big-O yozuvi (Big O notation) kirish hajmi kattalashganda algoritm ishining
+o’sish tezligini soddalashtirib ifodalaydi.</p>
+<h3 id="on--chiziqli-osish"><a class="header" href="#on--chiziqli-osish"><code>O(n)</code> — chiziqli o’sish</a></h3>
+<p><code>O(n)</code> algoritmda ma’lumot hajmi ikki baravar oshsa, eng yomon holatdagi ish ham
+taxminan ikki baravar oshadi:</p>
+<pre><code class="language-text">100 ta ism   → 100 tagacha tekshiruv
+200 ta ism   → 200 tagacha tekshiruv
+</code></pre>
+<p>Ikki betdan qidirish <code>n/2</code> qadam bajarishi mumkin, lekin Big-O doimiy
+ko’paytuvchilarni hisobga olmaydi. Shu sababli <code>O(n/2)</code> alohida sinf emas:</p>
+<pre><code class="language-text">O(n/2) = O(n)
+</code></pre>
+<p>Ikki betli usul amalda tezroq bo’lishi mumkin, ammo ikkala usul ham ma’lumot
+hajmiga chiziqli ravishda bog’liq.</p>
+<h3 id="olog-n--logarifmik-osish"><a class="header" href="#olog-n--logarifmik-osish"><code>O(log n)</code> — logarifmik o’sish</a></h3>
+<p><code>O(log n)</code> algoritm har qadamda muammoni doimiy ulushga, bu misolda yarmiga
+qisqartiradi. Kirish hajmi ikki baravar oshganda odatda faqat bitta qo’shimcha
+qadam kerak bo’ladi:</p>
+<pre><code class="language-text">1 024 ta element → taxminan 10 marta yarmiga bo'lish
+2 048 ta element → taxminan 11 marta yarmiga bo'lish
+</code></pre>
+<p>Big-O ichida logarifm asosi odatda yozilmaydi. Asos o’zgarishi faqat doimiy
+ko’paytuvchi hosil qiladi, Big-O esa umumiy o’sish turiga e’tibor beradi.</p>
+<h2 id="9-eng-yaxshi-va-eng-yomon-holat"><a class="header" href="#9-eng-yaxshi-va-eng-yomon-holat">9. Eng yaxshi va eng yomon holat</a></h2>
+<p>Algoritm ishlash vaqti kirish ma’lumotining joylashuviga ham bog’liq.</p>
+<p>Chiziqli qidiruvda:</p>
+<ul>
+<li>ism birinchi joyda bo’lsa, eng yaxshi holat yuz beradi;</li>
+<li>ism oxirida yoki ro’yxatda yo’q bo’lsa, eng yomon holat yuz beradi.</li>
+</ul>
+<p>Ikkilik qidiruvda:</p>
+<ul>
+<li>ism birinchi tekshirilgan o’rtada bo’lsa, darhol topiladi;</li>
+<li>har safar yana bir yarmini tekshirish kerak bo’lsa, ko’proq qadam bajariladi.</li>
+</ul>
+<p>Algoritmlarni boshlang’ich tahlil qilishda ko’pincha eng yomon holatga qaraladi.
+Bu usul bajarilish uchun qancha ish ketishining yuqori chegarasini tushunishga
+yordam beradi.</p>
+<h2 id="10-togri-algoritmni-tanlash"><a class="header" href="#10-togri-algoritmni-tanlash">10. To’g’ri algoritmni tanlash</a></h2>
+<p>Har bir vazifa uchun bitta mutlaq «eng yaxshi» algoritm mavjud emas. Tanlov
+ma’lumot va vaziyatga bog’liq:</p>
+<ul>
+<li>ma’lumot tartiblanganmi;</li>
+<li>qidiruv bir marta yoki ko’p marta bajariladimi;</li>
+<li>ma’lumot hajmi qanchalik katta;</li>
+<li>xotira yoki vaqt qanchalik cheklangan;</li>
+<li>algoritm barcha holatlarda to’g’ri natija beradimi.</li>
+</ul>
+<p>Kichik ro’yxatda sodda algoritm yetarli bo’lishi mumkin. Millionlab elementlar
+bilan ishlaganda esa samaradorlik juda katta farq qiladi.</p>
+<h2 id="kop-uchraydigan-xatolar-4"><a class="header" href="#kop-uchraydigan-xatolar-4">Ko’p uchraydigan xatolar</a></h2>
+<ul>
+<li>
+<p><strong>Xato:</strong> tez ishlaydigan har qanday usul yaxshi algoritm deb hisoblash.
+<strong>Sabab va yechim:</strong> algoritm avvalo barcha kerakli holatlarda to’g’ri natija
+berishi kerak.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> ikkilik qidiruvni tartiblanmagan ro’yxatda ishlatish.
+<strong>Sabab va yechim:</strong> tartib bo’lmasa, qaysi yarmini tashlash mumkinligini
+aniqlab bo’lmaydi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> <code>n/2</code> va <code>n</code> Big-O bo’yicha boshqa-boshqa o’sish turi deb o’ylash.
+<strong>Sabab va yechim:</strong> doimiy <code>1/2</code> ko’paytuvchi olib tashlanadi; ikkalasi ham
+<code>O(n)</code>.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> Big-O aniq ishlash vaqtini soniyalarda beradi deb hisoblash.
+<strong>Sabab va yechim:</strong> Big-O kirish kattalashgandagi o’sish tezligini bildiradi.</p>
+</li>
+<li>
+<p><strong>Xato:</strong> qidirilayotgan element yo’q bo’lgan holatni unutish.
+<strong>Sabab va yechim:</strong> algoritm qidiruv qachon tugashi va «topilmadi» natijasini
+qachon qaytarishini aniq belgilashi kerak.</p>
+</li>
+</ul>
+<h2 id="amaliy-mashqlar-4"><a class="header" href="#amaliy-mashqlar-4">Amaliy mashqlar</a></h2>
+<h3 id="1-mashq--algoritm-qismlarini-toping"><a class="header" href="#1-mashq--algoritm-qismlarini-toping">1-mashq — Algoritm qismlarini toping</a></h3>
+<p>Choy tayyorlash jarayonini tanlang va quyidagilarni yozing:</p>
+<ol>
+<li>kirish ma’lumotlari;</li>
+<li>tartiblangan qadamlar;</li>
+<li>chiqish natijasi;</li>
+<li>jarayon qachon tugashi.</li>
+</ol>
+<p>Qadamlaringizni boshqa odam qo’shimcha savolsiz bajara olishini tekshiring.</p>
+<h3 id="2-mashq--chiziqli-qidiruvni-kuzating"><a class="header" href="#2-mashq--chiziqli-qidiruvni-kuzating">2-mashq — Chiziqli qidiruvni kuzating</a></h3>
+<p>Quyidagi ro’yxatdan <code>23</code> sonini birma-bir qidiring:</p>
+<pre><code class="language-text">[2, 5, 8, 12, 16, 23, 38, 56]
+</code></pre>
+<p>Tekshirilgan qiymatlarni tartib bilan yozing va jami taqqoslashlar sonini toping.
+Keyin <code>40</code> sonini qidirsangiz nima sodir bo’lishini tushuntiring.</p>
+<h3 id="3-mashq--ikkilik-qidiruvni-kuzating"><a class="header" href="#3-mashq--ikkilik-qidiruvni-kuzating">3-mashq — Ikkilik qidiruvni kuzating</a></h3>
+<p>Xuddi shu tartiblangan ro’yxatdan <code>23</code> sonini ikkilik qidiruv bilan toping:</p>
+<pre><code class="language-text">[2, 5, 8, 12, 16, 23, 38, 56]
+</code></pre>
+<p>Har bir qadamda:</p>
+<ol>
+<li>tekshirilgan o’rta qiymatni;</li>
+<li>tashlab yuborilgan yarmini;</li>
+<li>qolgan qidiruv oralig’ini yozing.</li>
+</ol>
+<p>O’rta joyda ikkita qiymat qolsa, chapdagisini tanlash qoidasidan foydalaning.</p>
+<h3 id="4-mashq--osishni-solishtiring"><a class="header" href="#4-mashq--osishni-solishtiring">4-mashq — O’sishni solishtiring</a></h3>
+<p>Ro’yxatda <code>1 024</code> ta element bor deb tasavvur qiling.</p>
+<ol>
+<li>Chiziqli qidiruv eng yomon holatda nechta tekshiruv bajarishi mumkin?</li>
+<li>Juftlab qidirish taxminan nechta qadam oladi?</li>
+<li>Ikkilik qidiruv oralig’ini bittagacha necha marta yarmiga bo’ladi?</li>
+<li>Elementlar soni <code>2 048</code> ga oshsa, har bir javob qanday o’zgaradi?</li>
+</ol>
+<h3 id="5-mashq--xatoni-toping"><a class="header" href="#5-mashq--xatoni-toping">5-mashq — Xatoni toping</a></h3>
+<p>Quyidagi ro’yxatda ikkilik qidiruv ishlatish taklif qilindi:</p>
+<pre><code class="language-text">[41, 7, 19, 3, 28, 55, 12]
+</code></pre>
+<p>Nega bu taklif xavfli? Ikkita mumkin bo’lgan yechim yozing: biri ro’yxatni
+o’zgartirmasdan, ikkinchisi esa uni oldindan tayyorlash orqali ishlasin.</p>
+<h2 id="mini-loyiha--sonni-yetti-savolda-toping"><a class="header" href="#mini-loyiha--sonni-yetti-savolda-toping">Mini-loyiha — Sonni yetti savolda toping</a></h2>
+<ul>
+<li><strong>Vazifa:</strong> sherigingiz <code>1</code> dan <code>100</code> gacha bitta son o’ylasin. Siz sonni
+ko’pi bilan yettita «katta», «kichik» yoki «teng» javobli savol bilan toping.</li>
+<li><strong>Algoritm:</strong> har safar qolgan oraliqning o’rtasidagi sonni so’rang va
+javobga qarab oraliqning yarmini tashlang.</li>
+<li><strong>Kuzatuv:</strong> har qadamdagi quyi chegara, yuqori chegara va taxminni jadvalga
+yozing.</li>
+<li><strong>Sinov:</strong> eng kichik, eng katta va oraliqdagi bir nechta son bilan tekshiring.</li>
+<li><strong>Qabul mezonlari:</strong> algoritm har qanday <code>1</code>–<code>100</code> sonini yetti yoki undan kam
+savolda topishi va har qadamda oraliq to’g’ri qisqarishi kerak.</li>
+</ul>
+<h2 id="ozingizni-tekshiring-5"><a class="header" href="#ozingizni-tekshiring-5">O’zingizni tekshiring</a></h2>
+<ol>
+<li>Algoritm nima va u qanday asosiy qismlardan iborat?</li>
+<li>Algoritmning to’g’riligi bilan samaradorligi orasidagi farq nima?</li>
+<li>Chiziqli qidiruvning kuchli va zaif tomonlari qanday?</li>
+<li>Ikkilik qidiruv har qadamda muammoni qanday kichraytiradi?</li>
+<li>Nega ikkilik qidiruv uchun ma’lumot tartiblangan bo’lishi kerak?</li>
+<li><code>O(n)</code> va <code>O(log n)</code> o’sishlari orasida qanday farq bor?</li>
+<li>Nega <code>n/2</code> qadamli algoritm ham <code>O(n)</code> deb yoziladi?</li>
+<li>Kirish hajmi ikki baravar oshsa, ikkilik qidiruv qanday o’zgaradi?</li>
+</ol>
+<h2 id="dars-xulosasi-5"><a class="header" href="#dars-xulosasi-5">Dars xulosasi</a></h2>
+<ul>
+<li>Algoritm muammoni yechadigan aniq va tartibli qadamlar ketma-ketligidir.</li>
+<li>Algoritm avvalo to’g’ri, tugallanuvchi va tushunarli bo’lishi kerak.</li>
+<li>Chiziqli qidiruv elementlarni birma-bir tekshiradi va <code>O(n)</code> tezlikda o’sadi.</li>
+<li>Juftlab qidirish qadamlar sonini kamaytiradi, lekin uning o’sishi ham
+<code>O(n)</code> bo’lib qoladi.</li>
+<li>Ikkilik qidiruv tartiblangan ma’lumotni har qadamda yarmiga qisqartiradi va
+<code>O(log n)</code> tezlikda o’sadi.</li>
+<li>Big-O aniq soniyalarni emas, kirish kattalashganda ish miqdori qanday o’sishini
+ifodalaydi.</li>
+<li>Algoritm tanlashda ma’lumotning tartibi, hajmi va undan foydalanish usuli
+hisobga olinadi.</li>
+</ul>
+<h2 id="foydalanilgan-manba-4"><a class="header" href="#foydalanilgan-manba-4">Foydalanilgan manba</a></h2>
+<ul>
+<li><a href="https://cs50.harvard.edu/x/notes/0/#algorithms">CS50x 2026, Lecture 0 — Algorithms</a>
+— telefon kitobidan qidirish, algoritmlar va ishlash vaqtini solishtirish.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="terminlar-lugati"><a class="header" href="#terminlar-lugati">Terminlar lug’ati</a></h1>
+<p>Kitobda yangi termin paydo bo’lganda uni alifbo tartibida shu faylga
+kiriting.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Termin</th><th>Inglizcha nomi</th><th>Qisqa izoh</th></tr>
+</thead>
+<tbody>
+<tr><td>Algoritm</td><td>Algorithm</td><td>Muammoni yechish uchun aniq va tartibli qadamlar ketma-ketligi.</td></tr>
+<tr><td>Dastur</td><td>Program</td><td>Kompyuter bajarishi uchun yozilgan ko’rsatmalar to’plami.</td></tr>
+<tr><td>Funksiya</td><td>Function</td><td>Muayyan vazifani bajaradigan, qayta ishlatiluvchi kod bo’lagi.</td></tr>
+<tr><td>O’zgaruvchi</td><td>Variable</td><td>Dastur ishlashi davomida qiymat saqlaydigan nomlangan joy.</td></tr>
+<tr><td>Xatolik</td><td>Bug</td><td>Dastur kutilganidek ishlamasligiga sabab bo’ladigan muammo.</td></tr>
+</tbody>
+</table>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
