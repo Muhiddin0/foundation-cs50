@@ -1,0 +1,22 @@
+[book]
+title = "Foundation with CS50"
+description = "Dasturlash asoslari bo'yicha o'zbek tilidagi ochiq darslik"
+language = "uz"
+src = "book"
+text-direction = "ltr"
+
+[build]
+build-dir = "dist"
+create-missing = false
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+git-repository-url = "https://github.com/Muhiddin0/foundation-cs50"
+edit-url-template = "https://github.com/Muhiddin0/foundation-cs50/edit/main/book/{path}"
+site-url = "/foundation-cs50/"
+
+[output.html.print]
+enable = true
+page-break = true

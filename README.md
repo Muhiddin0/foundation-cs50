@@ -21,17 +21,19 @@ hamda sodda web-loyiha yaratishi kerak.
 
 ```text
 .
-├── book/                  # Kitobning asosiy boblari
+├── book.toml              # mdBook sozlamalari
+├── book/                  # mdBook manbalari
+│   ├── README.md          # Darslikning bosh sahifasi
 │   ├── SUMMARY.md         # Mundarija va boblar tartibi
-│   └── GLOSSARY.md        # Terminlar lug'ati
+│   ├── GLOSSARY.md        # Terminlar lug'ati
+│   ├── lecture-0/         # 0-ma'ruza mavzulari
+│   └── assets/            # Rasm va diagrammalar
+├── dist/                  # Yaratilgan sayt; Git tomonidan kuzatilmaydi
 ├── exercises/             # Mashqlar va yechim yozish qoidalari
-├── assets/
-│   ├── images/            # Rasmlar va skrinshotlar
-│   └── diagrams/          # Diagramma va sxemalar
 ├── references/            # Foydalanilgan manbalar
 ├── templates/             # Yangi bob uchun tayyor qolip
 ├── STYLE_GUIDE.md         # Til va format bo'yicha qo'llanma
-└── cs50.txt               # CS50 playlist havolasi
+└── lectures.txt           # CS50 ma'ruza havolalari
 ```
 
 ## Ishlash tartibi
@@ -39,11 +41,28 @@ hamda sodda web-loyiha yaratishi kerak.
 1. [Mundarija](book/SUMMARY.md)dan navbatdagi bobni tanlang.
 2. Bobni [qolip](templates/chapter-template.md) asosida yozing.
 3. Yangi terminlarni [lug'atga](book/GLOSSARY.md) kiriting.
-4. Rasm va diagrammalarni `assets/` ichida saqlang.
+4. Rasm va diagrammalarni `book/assets/` ichida saqlang.
 5. Foydalanilgan materialni `references/` ichida qayd eting.
 6. Bobni o'quvchida sinab, tushunarsiz joylarini qayta ishlang.
 
+## mdBook bilan ko'rish
+
+mdBook o'rnatilgan kompyuterda darslikni lokal ochish:
+
+```bash
+mdbook serve --open
+```
+
+Tayyor HTML saytni `dist/` katalogiga yaratish:
+
+```bash
+mdbook build
+```
+
+`main` tarmog'iga yuborilgan o'zgarishlar GitHub Actions orqali avtomatik
+ravishda GitHub Pages uchun tayyorlanadi.
+
 ## Hozirgi bosqich
 
-Kitob strukturasi va boblar skeleti tayyor. Keyingi qadam — `00-kirish.md`
-va `01-kompyuter-asoslari.md` boblarini mazmun bilan to'ldirish.
+mdBook strukturasi va 0-ma'ruzaning dastlabki mavzulari tayyor. Keyingi qadam —
+0-ma'ruzaning navbatdagi mavzularini yozish.
